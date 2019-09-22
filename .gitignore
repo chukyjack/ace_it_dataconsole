@@ -1,5 +1,6 @@
 **/myvenv
 ace_it/db.sqlite3
-**/thenenv
+**/thenv
 *.pyc
 **/.idea
+**/newenv
