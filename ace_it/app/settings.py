@@ -37,14 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tastypie',
     'user',
     'userprofile',
     'session',
     'course',
     'common',
     'api',
+    'util',
+    'schedule',
     "django_cron",
     'djcelery',
+
 
 
 ]

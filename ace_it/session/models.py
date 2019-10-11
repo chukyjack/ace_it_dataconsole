@@ -13,12 +13,18 @@ class Session(models.Model):
         (online, 'Online'),
         (offline,'Offline')
     )
-    student = models.ForeignKey(MyUser, related_name='student', on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    student = models.ForeignKey(MyUser, related_name='student', on_delete=models.CASCADE, blank=True, null=True)
+    subject = models.ForeignKey(Course, on_delete=models.CASCADE)
     is_assigned = models.BooleanField(default=False)
-    tutor = models.ForeignKey(MyUser, related_name='tutor', on_delete=models.CASCADE, null=True)
+    tutor = models.ForeignKey(MyUser, related_name='tutor', on_delete=models.CASCADE, blank=True, null=True)
     duration = models.PositiveIntegerField()
     location = models.TextField()
     type = models.PositiveIntegerField(choices=types)
-    time_slot = models.ForeignKey(Timeslot,on_delete=models.CASCADE)
+    time_slot = models.ForeignKey(Timeslot,on_delete=models.CASCADE, blank=True, null=True)
+    details = models.TextField(null=True, blank=True)
+    distance = models.PositiveIntegerField(null=True, blank=True)
 
+    def save(self):
+        if self.tutor:
+            self.is_assigned = True
+        super().save()

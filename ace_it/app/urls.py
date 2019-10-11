@@ -18,11 +18,17 @@ from django.urls import path
 from django.conf.urls import url, include
 from tastypie.api import Api
 from api.user_resources import UserResource
+from api.course_resources import CourseResource
+from api.session_resources import SessionResource
+from api.schedule_resources import ScheduleResource
 
 
 
 v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
+v1_api.register(CourseResource())
+v1_api.register(SessionResource())
+v1_api.register(ScheduleResource())
 
 
 urlpatterns = [

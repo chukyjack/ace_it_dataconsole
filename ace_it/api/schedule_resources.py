@@ -1,5 +1,5 @@
 from tastypie.resources import ModelResource
-from session.models import Session
+from schedule.models import Schedule
 from course.models import Course
 from api.user_resources import UserResource
 from tastypie import fields
@@ -11,17 +11,17 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class SessionResource(ModelResource):
+class ScheduleResource(ModelResource):
 
-    # course = fields.ForeignKey(CourseResource, 'course')
     subject = fields.CharField(attribute='subject')
     tutor = fields.ForeignKey(UserResource, 'tutor', null=True)
+    student = fields.ForeignKey(UserResource, 'student', null=True)
 
     class Meta:
-        resource_name = 'session'
-        queryset = Session.objects.all()
+        resource_name = 'schedule'
+        queryset = Schedule.objects.all()
         # allowed_methods = ['get', 'post', 'put', 'patch']
-        fields = ['id', 'type', 'duration', 'distance', 'details', 'location', 'is_assigned']
+        fields = ['id', 'start_time', 'end_time', 'location', 'type']
         limit = 0
         # authentication = SillyAuthentication
         authorization = Authorization()
@@ -29,19 +29,21 @@ class SessionResource(ModelResource):
     def dehydrate_subject(self, bundle):
         return bundle.obj.subject.name
 
-    def hydrate_subject(self, bundle):
-        print(bundle.obj.subject)
-        bundle.data['subject'] = Course.objects.get(name=bundle.obj.subject.name)
+    def hydrate(self, bundle):
+        print(bundle.data['subject'])
+        print(bundle.data)
+        bundle.data['subject'] = Course.objects.get(id=1)
+        bundle.data['student'] = User.objects.get(id=1)
+        bundle.data['tutor'] = bundle.request.user
+        bundle.data['start_time'] = bundle.data['time']
+        bundle.data['end_time'] = bundle.data['time']
+        bundle.data['type'] = 1
         print(bundle.data)
         return bundle
 
     def dehydrate_tutor(self, bundle):
-        return bundle.obj.tutor.id if bundle.obj.tutor else None
+        return bundle.obj.tutor.id
 
-    def hydrate_tutor(self, bundle):
-        print(bundle.data['tutor'])
-        if bundle.data['tutor']:
-            bundle.data['tutor'] = User.objects.get(id=bundle.data['tutor'])
-        print(bundle.data)
-        return bundle
+    def dehydrate_student(self, bundle):
+        return bundle.obj.student.first_name + ' ' + bundle.obj.student.last_name
 
