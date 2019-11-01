@@ -45,5 +45,5 @@ class ScheduleResource(ModelResource):
         return bundle.obj.tutor.id
 
     def dehydrate_student(self, bundle):
-        return bundle.obj.student.first_name + ' ' + bundle.obj.student.last_name
+        return bundle.obj.student.first_name
 

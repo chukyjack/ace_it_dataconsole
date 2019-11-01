@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'session',
     'course',
     'common',
+    'billing',
     'api',
     'util',
+    'chat',
+    'channels',
     'schedule',
     "django_cron",
     'djcelery',
@@ -95,7 +98,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
+ASGI_APPLICATION = 'app.routing.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

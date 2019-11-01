@@ -4,5 +4,7 @@ User = get_user_model()
 
 def set_user_details(request):
     data = {}
+    data['token'] = 'demotoken'
     data['user_id'] = request.user.id
+    data['username'] = request.user.username
     return data

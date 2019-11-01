@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url, include
 from tastypie.api import Api
 from api.user_resources import UserResource
+from api.chat_resources import ChatResource, MessageResource
 from api.course_resources import CourseResource
 from api.session_resources import SessionResource
 from api.schedule_resources import ScheduleResource
@@ -27,11 +28,14 @@ from api.schedule_resources import ScheduleResource
 v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
 v1_api.register(CourseResource())
+v1_api.register(ChatResource())
+v1_api.register(MessageResource())
 v1_api.register(SessionResource())
 v1_api.register(ScheduleResource())
 
 
 urlpatterns = [
+    path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
     url(r'^api/', include(v1_api.urls)),
 ]
