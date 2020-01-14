@@ -8,16 +8,24 @@ MyUser = get_user_model()
 class UserProfile(models.Model):
     car = 1
     bike = 2
-    public_transportation =3
+    public_transportation = 3
+    staff = 'staff'
+    tutor = 'tutor'
+    student = 'student'
     transportation_choices = (
-        (car,'Car'),
-        (bike,'Bike'),
+        (car, 'Car'),
+        (bike, 'Bike'),
         (public_transportation, 'Public Transportation')
     )
     distance = (
         (10, '10'), (15, '15'), (20, '20'),
         (25, '25'), (30, '30'), (35, '35'),
         (40, '40'), (45, '45'), (50, '50')
+    )
+    role_choices = (
+        (staff, 'Staff'),
+        (tutor, 'Tutor'),
+        (student, 'Student')
     )
     user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255, null=True)
@@ -30,3 +38,4 @@ class UserProfile(models.Model):
     send_more_students = models.BooleanField(default=False)
     send_text = models.BooleanField(default=True)
     max_distance = models.PositiveIntegerField(choices=distance)
+    role = models.CharField(choices=role_choices, default='staff', max_length=255)

@@ -8,6 +8,7 @@ from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization, ReadOnlyAuthorization
 from tastypie.constants import ALL
 from django.contrib.auth import get_user_model
+from api.authorization import UserAuthorization
 User = get_user_model()
 
 
@@ -24,7 +25,7 @@ class ScheduleResource(ModelResource):
         fields = ['id', 'start_time', 'end_time', 'location', 'type']
         limit = 0
         # authentication = SillyAuthentication
-        authorization = Authorization()
+        authorization = UserAuthorization()
 
     def dehydrate_subject(self, bundle):
         return bundle.obj.subject.name
@@ -42,6 +43,7 @@ class ScheduleResource(ModelResource):
         return bundle
 
     def dehydrate_tutor(self, bundle):
+        print(bundle.obj.tutor.first_name, bundle.obj.tutor.id)
         return bundle.obj.tutor.id
 
     def dehydrate_student(self, bundle):

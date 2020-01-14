@@ -1,6 +1,6 @@
 from tastypie.authorization import Authorization
 from chat.models import Chat
-
+from django.db.models import Q
 
 class ChatParticipantAuthorization(Authorization):
 
@@ -14,3 +14,9 @@ class ChatParticipantAuthorization(Authorization):
 
     def read_list(self, object_list, bundle):
         self.authorize_list(object_list, bundle)
+
+class UserAuthorization(Authorization):
+
+    def read_list(self, object_list, bundle):
+        user = bundle.request.user
+        return object_list.filter(Q(tutor=user) | Q(student=user))
