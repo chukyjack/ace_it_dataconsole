@@ -25,12 +25,29 @@ SECRET_KEY = 'yx_n6!iv$86xj#===mk%=iy=vys85z!ch7hut*+jspn13_8v1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1', 'localhost', '169.254.73.61']
+# Celery settings
 
+broker_url = 'amqp://guest:guest@localhost:5672//'
+
+# List of modules to import when the Celery worker starts.
+imports = ('schedule.tasks',)
+
+## Using the database to store task state and results.
+result_backend = 'db+sqlite:///results.db'
+
+task_annotations = {'tasks.add': {'rate_limit': '10/s'}}
+
+# using serializer name
+accept_content = ['json']
+
+# or the actual content-type (MIME)
+# accept_content = ['application/json']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +55,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tastypie',
-    'user',
     'userprofile',
     'session',
     'course',
@@ -51,6 +67,7 @@ INSTALLED_APPS = [
     'schedule',
     "django_cron",
     'djcelery',
+    'notification',
 
 
 

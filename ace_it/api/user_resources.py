@@ -1,4 +1,6 @@
 import json
+
+from django.db.models import Q
 from tastypie.resources import ModelResource
 from django.conf.urls import url
 from django.contrib.auth import get_user_model, authenticate, login, logout
@@ -8,20 +10,35 @@ from tastypie.authentication import Authentication, SessionAuthentication
 from tastypie.authorization import DjangoAuthorization, Authorization
 from tastypie.constants import ALL
 from tastypie.utils import trailing_slash
-from util.utils import set_user_details
-from session.models import Session
+
+from api.course_resources import CourseResource
+from util.utils import set_user_details, get_user_details
+from session.models import Session, SessionContract
 from django.forms import model_to_dict
+from api.authorization import UserWithContractAuthorization
+from tastypie import fields
+
 MyUser = get_user_model()
 
+
 class UserResource(ModelResource):
+
+    phone = fields.CharField(attribute='userprofile__phone_number', null=True)
+    address = fields.CharField(attribute='userprofile__address', null=True)
+    hobbies = fields.CharField(attribute='userprofile__hobbies', null=True)
+    statement = fields.CharField(attribute='userprofile__personal_statement', null=True)
+    courses = fields.ListField(blank=True, null=True)
+    subject = fields.CharField(readonly=True, null=True)
+    role = fields.CharField(attribute='userprofile__role', readonly=True, null=True)
+    level = fields.CharField(attribute='userprofile__level', readonly=True, null=True)
 
     class Meta:
         resource_name = 'user'
         queryset = MyUser.objects.all()
-        authentication = SessionAuthentication()
-        authorization = Authorization()
-        allowed_methods = ['get']
-        fields = ['id', 'username', 'first_name', 'last_name', 'last_login']
+        authentication = Authentication()
+        authorization = UserWithContractAuthorization()
+        # allowed_methods = ['get', 'post', 'patch']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'last_login']
 
     def prepend_urls(self):
         return [
@@ -33,6 +50,10 @@ class UserResource(ModelResource):
                 self.wrap_view('get_associated_users'),
                 name="get_associated_users"
                 ),
+            url(r"^(?P<resource_name>%s)/update_user_profile%s$" %(self._meta.resource_name, trailing_slash),
+                self.wrap_view('update_user_profile'),
+                name="update_user_profile"
+                ),
             url(r"^(?P<resource_name>%s)/login%s$" %(self._meta.resource_name, trailing_slash),
                 self.wrap_view('login'),
                 name="login"
@@ -43,6 +64,28 @@ class UserResource(ModelResource):
                 ),
 
         ]
+    
+    def dispatch(self, request_type, request, **kwargs):
+        return super(UserResource, self).dispatch(request_type, request, **kwargs)
+
+    def dehydrate_subject(self, bundle):
+        user = bundle.request.user
+        other_user = bundle.obj
+        session_name = 'N/A'
+        if user == other_user:
+            # courses = list(user.userprofile.courses.all().values_list('name', flat=True))
+            return session_name
+        if user.userprofile.role == 'tutor':
+            session_name = SessionContract.objects.prefetch_related('session__subject').get(tutor=user, student=other_user).session.subject.name
+        elif user.userprofile.role == 'student':
+            session_name = SessionContract.objects.prefetch_related('session__subject').get(tutor=other_user, student=user).session.subject.name
+        return session_name
+
+    def hydrate_statement(self, bundle):
+        user_profile = bundle.obj.userprofile
+        user_profile.personal_statement = bundle.data.get('personal_statement')
+        user_profile.save()
+        return bundle
 
     def get_associated_users(self, request, **kwargs):
         self.method_check(request, allowed=['get'])
@@ -51,11 +94,11 @@ class UserResource(ModelResource):
         user = request.user
         session_users = []
         if user.userprofile.role == 'student':
-            session_users = Session.objects.filter(student=user).values_list('tutor_id')
+            session_users = SessionContract.objects.filter(student=user).values_list('tutor_id')
         elif user.userprofile.role == 'tutor':
-            session_users = Session.objects.filter(tutor=user).values_list('student_id')
+            session_users = SessionContract.objects.filter(tutor=user).values_list('student_id')
         users = MyUser.objects.filter(id__in=session_users)
-        users = [model_to_dict(user, fields=['id', 'first_name', 'last_name', 'email']) for user in users]
+        users = [model_to_dict(user, fields=['id', 'first_name', 'last_name', 'email']) for user in users] #TODO specify fields using queryset values method instead
         return self.create_response(request, self._format_user(users))
 
     def user_session_details(self, request, **kwargs):
@@ -64,6 +107,17 @@ class UserResource(ModelResource):
         self.throttle_check(request)
         user_session_data = set_user_details(request)
         return self.create_response(request, user_session_data)
+
+    # def update_user_profile(self, request, **kwargs):
+    #     self.method_check(request, allowed=['patch'])
+    #     self.is_authenticated(request)
+    #     self.throttle_check(request)
+    #     old_details = get_user_details(request)
+    #     post_body = json.loads(request.body)
+    #     if old_details and (old_details != post_body):
+    #         print('Save new details')
+    #
+    #     return self.create_response(request, post_body)
 
     def login(self, request, **kwargs):
         self.method_check(request, allowed=['post'])
