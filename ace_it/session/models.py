@@ -5,6 +5,10 @@ from course.models import Course
 # Create your models here.
 MyUser = get_user_model()
 
+def user_gig_directory_path(instance, filename):
+
+    # file will be uploaded to MEDIA_ROOT / user_<id>/<filename>
+    return 'user_{0}_gig_{1}/{2}'.format(instance.gig.owner_id, instance.gig.id, filename)
 
 class Session(models.Model):
     online = 1
@@ -54,5 +58,50 @@ class SessionInterest(models.Model):
         app_label = 'session'
         db_table = 'session_interest'
         unique_together = ['tutor', 'session']
+
+
+class Gig(models.Model):
+    NEW = 'New'
+    ASSIGNED = 'Assigned'
+    COMPLETED = 'Completed'
+    PROJECT = 'Project'
+    ESSAY = 'Essay'
+    HOMEWORK = 'Home work'
+    STATUSES = (
+        (NEW, NEW),
+        (ASSIGNED, ASSIGNED),
+        (COMPLETED, COMPLETED)
+    )
+    TYPES = (
+        (PROJECT, PROJECT),
+        (ESSAY, ESSAY),
+        (HOMEWORK, HOMEWORK)
+    )
+    owner = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    description = models.TextField(null=True)
+    # files = models.FileField(null=True, blank=True)
+    status = models.CharField(choices=STATUSES, default=NEW, max_length=255)
+    type = models.CharField(choices=TYPES, default=HOMEWORK, max_length=255)
+    pay = models.PositiveIntegerField(null=True)
+    deadline = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        app_label = 'session'
+        db_table = 'gig'
+
+
+class GigFile(models.Model):
+    gig = models.ForeignKey(Gig, on_delete=models.CASCADE, related_name='gig_file')
+    file = models.FileField(null=True, blank=True, upload_to=user_gig_directory_path)
+
+
+class GigInterest(models.Model):
+    tutor = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name='gig_interest')
+    gig = models.ForeignKey(Gig, on_delete=models.CASCADE, related_name='gig_interest')
+
+    class Meta:
+        app_label = 'session'
+        db_table = 'gig_interest'
+        unique_together = ['tutor', 'gig']
 
 

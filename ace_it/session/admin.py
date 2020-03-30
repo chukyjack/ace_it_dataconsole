@@ -1,5 +1,5 @@
 from django.contrib import admin
-from session.models import Session, SessionInterest, SessionContract
+from session.models import Session, SessionInterest, SessionContract, GigFile, Gig
 from common.models import PreferredAvailability, StudentsAvailability
 # Register your models here.
 
@@ -27,3 +27,17 @@ class SessionInterestAdmin(admin.ModelAdmin):
 admin.site.register(Session, SessionAdmin)
 admin.site.register(SessionContract)
 admin.site.register(SessionInterest, SessionInterestAdmin)
+
+
+class GigFileInline(admin.StackedInline):
+    # fields = ('day','start_time','end_time')
+    model = GigFile
+    # readonly_fields = ['day', 'start_time', 'end_time']
+    extra = 1
+
+
+class GigAdmin(admin.ModelAdmin):
+    inlines = [GigFileInline]
+
+
+admin.site.register(Gig, GigAdmin)

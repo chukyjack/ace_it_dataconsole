@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.conf.urls.static import static
+from django.conf import settings
 from tastypie.api import Api
 from api.user_resources import UserResource
 from api.chat_resources import ChatResource, MessageResource
 from api.course_resources import CourseResource
-from api.session_resources import SessionResource
+from api.session_resources import SessionResource, GigResource, GigFileResource
 from api.schedule_resources import ScheduleResource
 
 
@@ -32,6 +34,8 @@ v1_api.register(ChatResource())
 v1_api.register(MessageResource())
 v1_api.register(SessionResource())
 v1_api.register(ScheduleResource())
+v1_api.register(GigResource())
+v1_api.register(GigFileResource())
 
 
 urlpatterns = [
@@ -39,3 +43,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/', include(v1_api.urls)),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

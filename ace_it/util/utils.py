@@ -31,6 +31,9 @@ def convert_time_to_string(time):
 def convert_time_to_string(time):
     return time.strftime("%d %b, %Y  %I:%M%p")
 
+def convert_time_to_date_string(time):
+    return time.strftime("%d %b, %Y ")
+
 def send_email_to_user(user):
     print('Sending email............')
     return

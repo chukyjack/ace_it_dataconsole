@@ -31,6 +31,9 @@ class ScheduleResource(ModelResource):
         limit = 0
         # authentication = SillyAuthentication
         authorization = UserAuthorization()
+        filtering = {
+            'status': ALL
+        }
 
     def dehydrate_subject(self, bundle):
         return bundle.obj.subject.name

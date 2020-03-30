@@ -32,6 +32,12 @@ class OpportunityAuthorization(Authorization):
         interested_sessions = user.session_interest.all().values_list('session__id', flat=True)
         return object_list.exclude(id__in=interested_sessions)
 
+class GigAuthorization(Authorization):
+
+    def read_list(self, object_list, bundle):
+        user = bundle.request.user
+        interested_gigs = user.gig_interest.all().values_list('gig__id', flat=True)
+        return object_list.exclude(id__in=interested_gigs)
 
 class UserWithContractAuthorization(Authorization):
 
