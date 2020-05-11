@@ -22,7 +22,11 @@ class UserAuthorization(Authorization):
 
     def read_list(self, object_list, bundle):
         user = bundle.request.user
+        # student_id = bundle.request.GET.get('student_id')
+        # if student_id:
+        #     return object_list.filter(tutor=user, student_id=student_id)
         return object_list.filter(Q(tutor=user) | Q(student=user))
+
 
 
 class OpportunityAuthorization(Authorization):

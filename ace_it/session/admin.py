@@ -3,11 +3,13 @@ from session.models import Session, SessionInterest, SessionContract, GigFile, G
 from common.models import PreferredAvailability, StudentsAvailability
 # Register your models here.
 
+
 class PreferredAvailabilityInline(admin.StackedInline):
     # fields = ('day','start_time','end_time')
     model = PreferredAvailability
     readonly_fields = ['day', 'start_time', 'end_time']
     extra = 1
+
 
 class StudentsAvailabilityInline(admin.StackedInline):
     # fields = ('day','start_time','end_time')

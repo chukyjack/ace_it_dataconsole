@@ -19,6 +19,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from tastypie.api import Api
+
+from api.bill_resources import BillResource
 from api.user_resources import UserResource
 from api.chat_resources import ChatResource, MessageResource
 from api.course_resources import CourseResource
@@ -31,6 +33,7 @@ v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
 v1_api.register(CourseResource())
 v1_api.register(ChatResource())
+v1_api.register(BillResource())
 v1_api.register(MessageResource())
 v1_api.register(SessionResource())
 v1_api.register(ScheduleResource())

@@ -20,18 +20,19 @@ class Schedule(models.Model):
     completed = 2
     statuses = (
         (pending, 'Pending'),
-        (confirmed, 'Confirmed'),
+        (confirmed, 'Confirmed')
     )
     student = models.ForeignKey(MyUser, related_name='students', on_delete=models.CASCADE, blank=True, null=True)
     subject = models.ForeignKey(Course, on_delete=models.CASCADE)
     tutor = models.ForeignKey(MyUser, related_name='tutors', on_delete=models.CASCADE, blank=True, null=True)
     start_time = models.DateTimeField()
-    end_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField()
     location = models.TextField(blank=True, null=True)
     type = models.PositiveIntegerField(choices=types, null=True, blank=True)
     material = models.FileField(null=True, blank=True, upload_to='lesson_materials')
     status = models.PositiveIntegerField(choices=statuses, default=pending)
     requested_by = models.ForeignKey(MyUser, related_name='requested_by', on_delete=models.CASCADE, blank=True, null=True)
+    is_billed = models.BooleanField(default=False)
 
 
     # def save(self, *args, **kwargs):

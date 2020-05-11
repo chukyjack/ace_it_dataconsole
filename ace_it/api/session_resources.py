@@ -77,7 +77,7 @@ class SessionResource(ModelResource):
         return bundle
 
     def dehydrate_start_date(self, bundle):
-        return convert_time_to_string(bundle.obj.start_date)
+        return convert_time_to_date_string(bundle.obj.start_date)
 
     def dehydrate_interested_tutors(self, bundle):
         return list(bundle.obj.session_interest.values_list('tutor_id', flat=True))

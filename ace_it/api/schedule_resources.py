@@ -1,4 +1,7 @@
+from django.conf.urls import url
 from tastypie.resources import ModelResource
+from tastypie.utils import trailing_slash
+
 from schedule.models import Schedule
 from course.models import Course
 from api.user_resources import UserResource
@@ -6,7 +9,7 @@ from tastypie import fields
 from api.course_resources import CourseResource
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization, ReadOnlyAuthorization
-from tastypie.constants import ALL
+from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from django.contrib.auth import get_user_model
 from api.authorization import UserAuthorization
 from util.utils import convert_time_to_string
@@ -27,13 +30,27 @@ class ScheduleResource(ModelResource):
         resource_name = 'schedule'
         queryset = Schedule.objects.all().order_by('status', 'start_time')
         allowed_methods = ['get', 'post', 'put', 'patch']
-        fields = ['id', 'start_time', 'location', 'status']
+        fields = ['id', 'start_time', 'location', 'status', 'is_billed', 'end_time']
         limit = 0
         # authentication = SillyAuthentication
         authorization = UserAuthorization()
         filtering = {
-            'status': ALL
+            'status': ALL,
+            'end_time': ALL,
+            'student': ALL_WITH_RELATIONS
         }
+
+    def prepend_urls(self):
+        return [
+            url(r"^(?P<resource_name>%s)/unbilled_schedules%s$" %(self._meta.resource_name, trailing_slash),
+                self.wrap_view('unbilled_schedules'),
+                name="unbilled_schedules"
+                ),
+            url(r"^(?P<resource_name>%s)/billed_schedules%s$" %(self._meta.resource_name, trailing_slash),
+                self.wrap_view('billed_schedules'),
+                name="billed_schedules"
+                ),
+        ]
 
     def dehydrate_subject(self, bundle):
         return bundle.obj.subject.name
@@ -101,6 +118,13 @@ class ScheduleResource(ModelResource):
         bundle.data['start_time'] = datetime.strptime(bundle.data['start_time'], '%d %b, %Y  %I:%M%p')
         return bundle
 
+    def hydrate_end_time(self, bundle):
+        if 'requested_user' in bundle.data:
+            bundle.data['endtime'] = datetime.strptime(bundle.data['start_time'], '%Y:%m:%d:%H:%M')
+            return bundle
+        bundle.data['endtime'] = datetime.strptime(bundle.data['start_time'], '%d %b, %Y  %I:%M%p')
+        return bundle
+
     def dehydrate_location(self, bundle):
         if bundle.obj.type == 1:
             return 'online'
@@ -111,11 +135,25 @@ class ScheduleResource(ModelResource):
             return 'pending'
         return 'confirmed'
 
-    # def save(self, bundle, skip_errors=False):
-    #     return super().save(bundle, skip_errors=skip_errors)
-    #
-    # def dispatch(self, request_type, request, **kwargs):
-    #     return super().dispatch(request_type, request, **kwargs)
+    def unbilled_schedules(self, request, **kwargs):
+        self.method_check(request, allowed=['get'])
+        self.is_authenticated(request)
+        tutor = request.user
+        student_id = request.GET.get('student_id')
+        unbilled_schedules = Schedule.objects.filter(
+            tutor=tutor,
+            student_id=student_id,
+            is_billed=False,
+            status=1,
+            end_time__lt=datetime.now()).values('id', 'subject__name', 'start_time', 'end_time')
+        return self.create_response(request, self._format_schedule(unbilled_schedules))
 
-    # def dispatch_list(self, request, **kwargs):
-    #     return su
+    def _format_schedule(self, schedules):
+        formated_schedules = []
+        for schedule in schedules:
+            data = {}
+            data['value'] = str(schedule['id'])
+            start_time = convert_time_to_string(schedule['end_time'])
+            data['label'] = schedule['subject__name'] + ' completed ' + start_time
+            formated_schedules.append(data)
+        return formated_schedules
