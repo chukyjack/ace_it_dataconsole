@@ -116,7 +116,7 @@ class SessionResource(ModelResource):
                             start_time=datetime.strptime(availability.get('start_time'), '%I:%M%p'),
                             end_time=datetime.strptime(availability.get('end_time'), '%I:%M%p')
                         )
-        return self.create_response(request, {})
+        return self.create_response(request, {'msg': 'Request successfully sent.'})
 
 
 class GigResource(ModelResource):

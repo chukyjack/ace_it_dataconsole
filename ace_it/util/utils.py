@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
-
+from session.models import SessionUnit
 User = get_user_model()
+
 
 def set_user_details(request):
     data = {}
@@ -20,7 +21,13 @@ def set_user_details(request):
         data['degree'] = 'University of X'
         data['title'] = 'Tutors title'
     request.session['user_details'] = data
+    if request.user.userprofile.role == 'student':
+        try:
+            data['session_unit'] = float(request.user.session_unit.value)
+        except SessionUnit.DoesNotExist:
+            data['session_unit'] = 0
     return data
+
 
 def get_user_details(request):
     return request.session.get('user_details')

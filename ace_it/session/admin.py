@@ -1,5 +1,5 @@
 from django.contrib import admin
-from session.models import Session, SessionInterest, SessionContract, GigFile, Gig
+from session.models import Session, SessionInterest, SessionContract, GigFile, Gig, SessionUnit
 from common.models import PreferredAvailability, StudentsAvailability
 # Register your models here.
 
@@ -43,3 +43,5 @@ class GigAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Gig, GigAdmin)
+
+admin.site.register(SessionUnit)

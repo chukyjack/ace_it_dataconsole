@@ -13,7 +13,7 @@ from tastypie.utils import trailing_slash
 
 from api.course_resources import CourseResource
 from util.utils import set_user_details, get_user_details
-from session.models import Session, SessionContract
+from session.models import Session, SessionContract, SessionUnit
 from django.forms import model_to_dict
 from api.authorization import UserWithContractAuthorization
 from tastypie import fields
@@ -54,6 +54,10 @@ class UserResource(ModelResource):
                 self.wrap_view('update_user_profile'),
                 name="update_user_profile"
                 ),
+            url(r"^(?P<resource_name>%s)/add_session_unit%s$" %(self._meta.resource_name, trailing_slash),
+                self.wrap_view('add_session_unit'),
+                name="add_session_unit"
+                ),
             url(r"^(?P<resource_name>%s)/login%s$" %(self._meta.resource_name, trailing_slash),
                 self.wrap_view('login'),
                 name="login"
@@ -64,7 +68,7 @@ class UserResource(ModelResource):
                 ),
 
         ]
-    
+
     def dispatch(self, request_type, request, **kwargs):
         return super(UserResource, self).dispatch(request_type, request, **kwargs)
 
@@ -118,6 +122,26 @@ class UserResource(ModelResource):
     #         print('Save new details')
     #
     #     return self.create_response(request, post_body)
+    def add_session_unit(self, request, **kwargs):
+        self.method_check(request, allowed=['patch'])
+        self.is_authenticated(request)
+        self.throttle_check(request)
+        user = request.user
+        if user.userprofile.role != 'student':
+            return self.create_response(request, {'error': 'Units can be added only for students.'})
+        if not authenticate_payment():
+            return self.create_response(request, {'error': 'Card authentication failed'})
+        post_body = json.loads(request.body)
+        requested_session_unit_value = int(post_body.get('requested_session_unit', 0))
+        try:
+            previous_unit_value = user.session_unit.value
+            new_value = previous_unit_value + requested_session_unit_value
+            user.session_unit.value = new_value
+            user.session_unit.save()
+        except SessionUnit.DoesNotExist:
+            SessionUnit.objects.create(student=user, value=requested_session_unit_value)
+            new_value = requested_session_unit_value
+        return self.create_response(request, {'new_session_unit': new_value, 'msg': 'Unit successfully added.'})
 
     def login(self, request, **kwargs):
         self.method_check(request, allowed=['post'])
@@ -150,3 +174,6 @@ class UserResource(ModelResource):
             formated_users.append(data)
         return formated_users
 
+
+def authenticate_payment():
+    return True

@@ -26,7 +26,7 @@ class Schedule(models.Model):
     subject = models.ForeignKey(Course, on_delete=models.CASCADE)
     tutor = models.ForeignKey(MyUser, related_name='tutors', on_delete=models.CASCADE, blank=True, null=True)
     start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    end_time = models.DateTimeField(null=True, blank=True)
     location = models.TextField(blank=True, null=True)
     type = models.PositiveIntegerField(choices=types, null=True, blank=True)
     material = models.FileField(null=True, blank=True, upload_to='lesson_materials')

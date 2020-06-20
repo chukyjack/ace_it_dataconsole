@@ -6,9 +6,6 @@ from schedule.models import Schedule
 from course.models import Course
 from api.user_resources import UserResource
 from tastypie import fields
-from api.course_resources import CourseResource
-from tastypie.authentication import Authentication
-from tastypie.authorization import Authorization, ReadOnlyAuthorization
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from django.contrib.auth import get_user_model
 from api.authorization import UserAuthorization
@@ -34,6 +31,7 @@ class ScheduleResource(ModelResource):
         limit = 0
         # authentication = SillyAuthentication
         authorization = UserAuthorization()
+        # always_return_data = True
         filtering = {
             'status': ALL,
             'end_time': ALL,
@@ -113,16 +111,11 @@ class ScheduleResource(ModelResource):
 
     def hydrate_start_time(self, bundle):
         if 'requested_user' in bundle.data:
-            bundle.data['start_time'] = datetime.strptime(bundle.data['start_time'], '%Y:%m:%d:%H:%M')
+            start_time = bundle.data.get('start_time')
+            if isinstance(start_time, str):
+                bundle.data['start_time'] = datetime.strptime(start_time, '%Y:%m:%d:%H:%M')
             return bundle
         bundle.data['start_time'] = datetime.strptime(bundle.data['start_time'], '%d %b, %Y  %I:%M%p')
-        return bundle
-
-    def hydrate_end_time(self, bundle):
-        if 'requested_user' in bundle.data:
-            bundle.data['endtime'] = datetime.strptime(bundle.data['start_time'], '%Y:%m:%d:%H:%M')
-            return bundle
-        bundle.data['endtime'] = datetime.strptime(bundle.data['start_time'], '%d %b, %Y  %I:%M%p')
         return bundle
 
     def dehydrate_location(self, bundle):

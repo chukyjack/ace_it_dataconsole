@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from course.models import Course
 
 # Create your models here.
+from session.constants import LOW_BALANCE_THRESHOLD
+
 MyUser = get_user_model()
 
 def user_gig_directory_path(instance, filename):
@@ -58,6 +60,17 @@ class SessionInterest(models.Model):
         app_label = 'session'
         db_table = 'session_interest'
         unique_together = ['tutor', 'session']
+
+
+class SessionUnit(models.Model):
+    student = models.OneToOneField(MyUser, on_delete=models.CASCADE, related_name='session_unit')
+    value = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+
+    def is_low(self):
+        return self.value <= LOW_BALANCE_THRESHOLD
+
+    def __str__(self):
+        return f'Tutoring unit for {self.student.first_name} {self.student.last_name}'
 
 
 class Gig(models.Model):
