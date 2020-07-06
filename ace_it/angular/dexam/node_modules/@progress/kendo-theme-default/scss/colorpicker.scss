@@ -1,0 +1,15 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+
+// Dependencies
+@import "common/_all.scss";
+@import "popup.scss";
+@import "button.scss";
+@import "slider.scss";
+
+
+// Component
+@import "colorpicker/images/alpha-slider-bgr.scss";
+@import "colorpicker/_layout.scss";
+@import "colorpicker/_theme.scss";

@@ -1,0 +1,173 @@
+@each $skin,
+$data in $skins {
+  .#{$skin}-skin {
+
+    .pills-primary .nav-link.active {
+      background-color: map-get($data, skin-btn-primary) !important;
+    }
+
+    .pills-secondary .nav-link.active {
+      background-color: map-get($data, skin-btn-secondary) !important;
+    }
+
+    .pills-default .nav-link.active {
+      background-color: map-get($data, skin-btn-default) !important;
+    }
+
+    .navbar-nav {
+      .nav-item {
+        .dropdown-menu a {
+          color: $black;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background-color: darken(map-get($data, skin-accent), 5%) !important;
+          }
+        }
+
+        @if $skin=="white" {
+          a {
+            color: map-get($data, skin-text);
+          }
+        }
+      }
+    }
+
+    .dropdown-menu a {
+      color: $black;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: darken(map-get($data, skin-accent), 5%) !important;
+      }
+    }
+
+    .range-cloud {
+      background-color: map-get($data, skin-primary-color) !important;
+
+      &:after {
+        border-top-color: map-get($data, skin-primary-color) !important;
+      }
+    }
+
+
+    .range-field input[type="range"] {
+      &::-webkit-slider-thumb {
+        background: map-get($data, skin-primary-color);
+      }
+
+      &::-moz-range-thumb {
+        background: map-get($data, skin-primary-color);
+      }
+
+      &::-ms-thumb {
+        background: map-get($data, skin-primary-color);
+      }
+    }
+
+    .side-nav {
+
+      /* .search-form .md-form input:focus {
+        color: map-get($data, skin-text);
+        border-bottom: $skins-white-search-border-bottom solid $skins-border-color;
+      } */
+
+
+
+      form.search-form > div {
+        overflow-x: hidden;
+      }
+
+      .sidenav-bg {
+        position: fixed;
+      }
+
+      .social {
+        a {
+          .fa {
+            transition: 0.3s;
+          }
+
+          &:hover {
+            .fa {
+              color: map-get($data, skin-accent);
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+
+      .collapsible {
+        .card {
+          .card-header {
+            a {
+              h5 {
+                color: map-get($data, skin-text);
+              }
+
+              &:hover {
+                background-color: map-get($data, skin-sidenav-item-hover);
+              }
+            }
+          }
+
+          &.active {
+            > mdb-accordion-item-head {
+              background-color: map-get($data, skin-sidenav-item);
+              @if $skin=="white" {
+                color: map-get($data, skin-sidenav-item);
+                background-color: transparent;
+              }
+
+              .card-header {
+                a {
+                  h5 {
+                    @if $skin=="white" {
+                      color: map-get($data, skin-sidenav-item);
+                      background-color: transparent;
+                    }
+                  }
+                }
+              }
+            }
+
+            .card-header {
+              a {
+                h5 {
+                  color: map-get($data, skin-text);
+
+                  .fa {
+                    color: map-get($data, skin-text);
+                  }
+                }
+              }
+            }
+          }
+
+          & mdb-accordion-item-head.active a {
+            background-color: map-get($data, skin-sidenav-item-hover);
+          }
+        }
+
+        .card-body {
+          li {
+            a {
+              color: map-get($data, skin-text);
+              // background-color: rgba(0, 0, 0, .15);
+
+              &:hover {
+                color: map-get($data, skin-sn-child);
+              }
+            }
+
+            a.active {
+              color: map-get($data, skin-sn-child);
+            }
+          }
+        }
+      }
+    }
+  }
+}

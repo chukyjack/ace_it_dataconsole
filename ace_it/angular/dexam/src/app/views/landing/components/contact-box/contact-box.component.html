@@ -1,0 +1,91 @@
+<div class="bg-grey center-box">
+<!--    -->
+    <form class="form layout-field layout-region">
+<!--  <div class="container" >-->
+    <div class="center-box">
+    <h3>Get Tutoring Info Now</h3>
+    </div>
+    <div class="row" [hidden]="!(showStep1)">
+<!--      <div class="col-sm-12"><h3>What's your name?</h3></div>-->
+<!--      <div>-->
+<!--      <div class="lead-constructor__answer-block">-->
+<!--        <div class="lead-constructor__field-grid">-->
+<!--        <div class="col-sm-4 form__field">-->
+<!--          <input type="text"  [(ngModel)]="name"/>-->
+<!--        </div>-->
+<!--        <div class="col-sm-4 form__field">-->
+<!--          <input type="text" [(ngModel)]="phone"/>-->
+<!--        </div>-->
+<!--&lt;!&ndash;          <div class="col-sm-4">&ndash;&gt;-->
+<!--&lt;!&ndash;          &ndash;&gt;-->
+<!--&lt;!&ndash;          &ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--      </div>-->
+<!--        <button class="edge-button edge-button&#45;&#45;primary lead-constructor__next"> Submit</button>-->
+<!--&lt;!&ndash;        <div class="col-sm-4">&ndash;&gt;-->
+<!--      </div>-->
+      <div class="col-sm-4">
+        <label class="form__field">
+            <span class="form__label-text">Full Name *</span>
+        <input type="text" class="form-control" [(ngModel)]="name" name="name"/>
+        </label>
+      </div>
+      <div class="col-sm-4">
+        <label class="form__field">Phone Number
+        <input type="text" class="form-control" [(ngModel)]="phone" name="phone"/>
+        </label>
+      </div>
+      <div class="col-sm-3">
+        <button class="edge-button edge-button&#45;&#45;primary lead-constructor__next" (click)="next()"> Continue</button>
+      </div>
+
+      </div>
+<!--    </div>-->
+    <div class="row animated fadeIn" [hidden]="!(showStep2)" id="step2">
+<!--      <div class="col-sm-12">-->
+<!--        <h2 class="animated fadeInLeft text-primary">Hi, {{name}}<span ng-bind="name.first"></span> <span ng-bind="name.middle"></span> <span ng-bind="name.last"></span></h2>-->
+<!--&lt;!&ndash;        <h3>Where do you live?</h3>&ndash;&gt;-->
+<!--      </div>-->
+      <div class="col-sm-4">
+        <label>Email</label>
+        <input type="text" class="form-control" [(ngModel)]="email"/>
+      </div>
+      <div class="col-sm-4">
+        <label>Zip code</label>
+        <input type="text" class="form-control" [(ngModel)]="zipcode"/>
+      </div>
+      <div class="col-sm-3">
+        <button class="edge-button edge-button&#45;&#45;primary lead-constructor__next" (click)="send()"> Submit</button>
+      </div>
+    </div>
+    <div class="animated fadeIn center-box" ng-show="location.city && location.state" id="step3">
+<!--      <div class="col-sm-12">-->
+<!--        <h3>Do you own your own home?</h3>-->
+<!--      </div>-->
+<!--      <div class="col-sm-12">-->
+<!--        <button class="btn btn-lg" (click)="step3(1)">Yes</button> <button class="btn btn-lg" (click)="step3(0)">No</button>-->
+<!--      </div>-->
+        <ul class="progress-dots__total">
+            <li class="progress-dots__indicator progress-dots__indicator--active" data-step="1"></li>
+            <li class="progress-dots__indicator" data-step="2"></li>
+        </ul>
+      <div>
+
+          <div class="progress__text">Step 1 of 2</div>
+      </div>
+    </div>
+<!--    <div class="row animated fadeIn" ng-show="step4" id="step4">-->
+<!--      <div class="col-sm-12">-->
+<!--        <div class="well">Oh no, that sucks.</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row animated fadeIn" (show)="step5" id="step5">-->
+<!--      <div class="col-sm-12">-->
+<!--        <div class="well">Hey! That's awesome. You're livin' the dream.</div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <br><br>
+<!--  </div>-->
+    </form>
+</div>

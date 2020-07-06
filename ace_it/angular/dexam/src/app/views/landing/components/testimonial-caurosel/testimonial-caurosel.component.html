@@ -1,0 +1,49 @@
+<section id="testimonials-wrap" class="testimonial-caurosel-wrap  p-t-b-80">
+    <div class="container ">
+        <div class="row">
+            <div class="section-header col-md-12 mb-5">
+                <h2 class="font-weight-bold ">What our customers says</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat ea quam laborum, ducimus, laboriosam sint dolorum aspernatur libero.</p>
+            </div>
+            <div class="col-md-12">
+                <ngu-carousel #myCarousel [inputs]="carouselTile" [dataSource]="carouselTileItems">
+                    <ngu-tile *nguCarouselDef="let item; let i = index">
+
+                        <div class="card mb-4 p-3 single-testimonial-wrap">
+
+                            <div class="card-body text-left">
+
+
+
+                                <p class="mb-4">{{item.testimonial}}</p>
+
+
+
+                                <div class="test-user-details text-left abs">
+                                    <div class="user-img w-20 float-left mr-1">
+                                        <img [src]="item.user_image" class="rounded-circle" alt="">
+                                    </div>
+                                    <span class="user-name font-weight-bold mt-1 w-75 float-right">{{item.user_name}}</span>
+                                    <span class="user-designation w-75 float-right">{{item.user_designation}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </ngu-tile>
+                    <span NguCarouselPrev class="ngu_control_button  leftRs btn btn-circle btn-white btn-shadow" [style.opacity]="myCarousel.isFirst ? 0.5:1"><i
+                        class="eva eva-chevron-left-outline"></i></span>
+                    <span NguCarouselNext class="ngu_control_button rightRs btn btn-circle btn-white btn-shadow" [style.opacity]="myCarousel.isLast ? 0.5:1"><i
+                       class="eva eva-chevron-right-outline"></i></span>
+
+                </ngu-carousel>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>

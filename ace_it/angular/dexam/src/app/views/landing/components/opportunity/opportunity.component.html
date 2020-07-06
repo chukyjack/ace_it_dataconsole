@@ -1,0 +1,24 @@
+<section id="opportunity-wrap" class="features_wrap p-t-b-80">
+  <div class="container">
+    <table id="customers">
+      {{newOpps}}
+      <thead>
+      <th>Subject</th>
+      <th>Location</th>
+      <th>Duration</th>
+      <th>howdy</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let opportunity of opportunities">
+        <td>{{opportunity.type}}</td>
+        <td>{{opportunity.duration}}</td>
+        <td>{{opportunity.location}}</td>
+        <td>howdy partner</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 class="mt-3">Micro Blog Posts</h2>
+
+
+  </div>
+</section>

@@ -1,0 +1,459 @@
+<nav id="home-header" class=" navbar navbar-expand-lg text-16 ">
+    <div class="container ">
+
+
+        <div class="d-flex flex-grow-1 mobile_menu ">
+            <span class="w-100 d-lg-none d-block ">
+        </span>
+
+            <a class="navbar-brand-two mx-auto d-inline-block " href="# ">
+                <img src="./assets/images/landing/lOGO_d/logo.png " alt="logo ">
+            </a>
+            <div class="w-100 text-right ">
+                <button class="navbar-toggler " type="button " (click)="isCollapsed=! isCollapsed " [attr.aria-expanded]="!isCollapsed " aria-controls="collapseExample ">
+          <span class="navbar-toggler-icon ">
+            <i class="eva eva-menu-outline text-30 text-white "></i>
+          </span>
+
+        </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right " id="collapseExample " [ngbCollapse]="isCollapsed ">
+            <ul class="navbar-nav ml-auto flex-nowrap ">
+                <li class="nav-item ">
+                    <a href="# " scrollTo="intro-wrap" class="nav-link m-2 menu-item nav-active ">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="# " scrollTo="demos-wrap" class="nav-link m-2 menu-item nav-active ">Demos</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="# " scrollTo="features-wrap" class="nav-link m-2 menu-item ">Features</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- end of header -->
+<section id="intro-wrap" class="demo-intro-Wrap bg-primary text-left text-white ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg demo-intro-LeftSection pb-5 ">
+                <h1 class="introTitle font-weight-bold text-white text-42 mb-3 t-shadow ">Dexam-Angular App Landing Page</h1>
+                <p class="introDescription text-20 mb-4 "> Dexam is Not Regular HTML Landing Page.HTML Version Will Be Coming Soon.Dexam is highly customizable Angular 7+ Bootstrap 4 Landing Page. Dexam is built with Official @angular/cli tool and uses NG Bootstrap .</p>
+                <div class="introList mb-5 lead ">
+                    <ul class="list-inline ">
+                        <li class=" mb-3 "><i class="eva eva-checkmark-outline mr-2 text-warning "></i>Fully Responsive Design
+                        </li>
+                        <li class="mb-3 "><i class=" eva eva-checkmark-outline mr-2 text-warning "></i>Angular Authentication Pages
+                        </li>
+                        <li class="mb-3 "><i class="eva eva-checkmark-outline mr-2 text-warning "></i> Super Flexible And Customizable
+                        </li>
+                    </ul>
+                </div>
+                <div class="demo-intro-Buttons ">
+                    <a scrollTo="demos-wrap" class="btn btn-outline-white btn-lg pl-5 pr-5 pb-2 mr-2 mb-4 text-uppercase " href="# " role="button ">
+
+            View Demos</a>
+                    <a id=" " target="_blank" href="https://themeforest.net/item/dexam-angular-bootstrap-app-landing-page/23137988" class="btn btn-warning btn-lg pl-5 pr-5 pb-2 mb-4 text-uppercase " role="button ">
+
+           Buy Dexam
+          </a>
+
+                </div>
+
+            </div>
+            <div class="col-lg demo-intro-RightSection d-flex align-items-center">
+
+                <div class="demo-intro-ProductImage ">
+                    <img src="./assets/images/landing/header/demo.svg" class="img-responsive" alt=" " [@animate]="{value:'*',params:{x:'200px',opacity:'0',delay:'100ms', duration: '500ms'}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay ">
+
+    </div>
+
+
+</section>
+<!-- end of intro -->
+<section id="demos-wrap" class="work1Wrap">
+    <div class="container">
+        <div class="row">
+            <div class=" section-header col-md-12 mb-5">
+                <h2 class="font-weight-bold mb-3">Ten Amazing Demos</h2>
+                <p>All Sections are individual Components So You can use whatever You want .</p>
+            </div>
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v1"><img class="card-img-top" src="./assets/images/landing/demos/1.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version One</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v1" class="btn  btn-primary ">
+                            View Demo
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v2"> <img class="card-img-top" src="./assets/images/landing/demos/2.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Two</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v2" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v3">
+                        <img class="card-img-top" src="./assets/images/landing/demos/3.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Three</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v3" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v4">
+                        <img class="card-img-top" src="./assets/images/landing/demos/4.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Four</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v4" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v5">
+                        <img class="card-img-top" src="./assets/images/landing/demos/5.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Five</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v5" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v6">
+                        <img class="card-img-top" src="./assets/images/landing/demos/6.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Six</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v6" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v7">
+                        <img class="card-img-top" src="./assets/images/landing/demos/7.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Seven</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v7" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v8">
+                        <img class="card-img-top" src="./assets/images/landing/demos/8.png" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Eight</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v8" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v9">
+                        <img class="card-img-top" src="./assets/images/landing/demos/9.png" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Nine</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v9" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v10">
+                        <img class="card-img-top" src="./assets/images/landing/demos/10.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Ten</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v10" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+            <div class="col-md-6 mb-4">
+
+
+                <div class="card o-hidden ">
+                    <a routerLink="/landing/v11">
+                        <img class="card-img-top" src="./assets/images/landing/demos/11.png" alt="Card image cap">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold m-0">Version Eleven</h5>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <a routerLink="/landing/v11" class="btn  btn-primary ">
+        View Demo
+      </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of col -->
+
+        </div>
+    </div>
+
+</section>
+<!-- demos end -->
+<section id="features-wrap" class="features_wrap p-t-b-80">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 section-header mb-5">
+                <h2 class="font-weight-bold">Some Features Of Dexam</h2>
+
+
+            </div>
+
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">Angular CLI</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">Responsive</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">Major Browser Support</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card  o-hidden">
+
+                    <div class="card-body  p-5 text-center">
+
+                        <h4 class=" card-title pt-2 font-weight-medium">NGU Carousel</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">NG-Bootstrap</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">Easy to Customize</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">SignUp Page</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">SignIn Page</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h4 class="card-title pt-2 font-weight-medium">Forgot password page</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of left card col-6 -->
+
+            <div class="col-md-12 mt-4 text-center">
+                <div class="demo-intro-Buttons ">
+                    <a scrollTo="demos-wrap" class="btn btn-warning btn-lg pl-5 pr-5 pb-2 mr-2 mb-4 text-uppercase " href="# " role="button ">
+
+    View Demos</a>
+                    <a id=" " target="_blank" href="https://themeforest.net/item/dexam-angular-bootstrap-app-landing-page/23137988" class="btn btn-success btn-lg pl-5 pr-5 pb-2 mb-4 text-uppercase " role="button ">
+
+    Buy Dexam
+  </a>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,811 @@
+<!-- Table -->
+<!--<div class="card shadow">-->
+<!--  <div class="card-header border-0">-->
+<!--    &lt;!&ndash;            <h3 class="mb-0">Schedule</h3>&ndash;&gt;-->
+<!--    <div class="row centre ">-->
+<!--      <app-schedule-form></app-schedule-form>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container card-header">
+  <div class="row centre-form">
+    <app-schedule-form></app-schedule-form>
+  </div>
+</div>
+
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-6 mx-auto">-->
+<!--&lt;!&ndash;      <div class="md-form">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"&ndash;&gt;-->
+<!--&lt;!&ndash;               mdbInput>&ndash;&gt;-->
+<!--&lt;!&ndash;        <label for="search-input">Search</label>&ndash;&gt;-->
+<!--      <h3 class="centre-text">Upcoming Appointments</h3>-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+<!--    <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">-->
+<!--      <thead class="sticky-top">-->
+<!--      <tr>-->
+<!--        <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"-->
+<!--            scope="col">{{head | titlecase}} <mdb-icon fas icon="sort"></mdb-icon>-->
+<!--        </th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody #row>-->
+<!--      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">-->
+<!--        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{el.name}}</th>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="red-text">{{el.subject}}</td>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.start_time}}</td>-->
+<!--        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.location}}</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--      <tfoot class="grey lighten-5 w-100">-->
+<!--      <tr>-->
+<!--        <td colspan="4">-->
+<!--          <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tfoot>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!--<div class="container">-->
+<!--  <table mdbTable #tableEl="mdbTable" class="z-depth-1">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}-->
+<!--      </th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let el of elements; let i = index">-->
+<!--      <th scope="row">{{el.id}}</th>-->
+<!--      <td >{{el.first}}</td>-->
+<!--      <td >{{el.last}}</td>-->
+<!--      <td >{{el.handle}}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--    <tfoot class="grey lighten-5 w-100">-->
+<!--    <tr>-->
+<!--      <td colspan="4">-->
+<!--        <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tfoot>-->
+<!--  </table>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--&lt;!&ndash;  <div class="col"></div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <div class="col">&ndash;&gt;-->
+<!--    <div class="card shadow">-->
+<!--      <div class="card-header border-0">-->
+<!--        &lt;!&ndash;            <h3 class="mb-0">Schedule</h3>&ndash;&gt;-->
+<!--        <div class="row centre ">-->
+<!--          <app-schedule-form></app-schedule-form>-->
+
+<!--        </div>-->
+
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-6 mx-auto">-->
+<!--              <div class="md-form">-->
+<!--                <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"-->
+<!--                       mdbInput>-->
+<!--                <label for="search-input">Search</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">-->
+<!--              <thead class="sticky-top">-->
+<!--              <tr>-->
+<!--                <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"-->
+<!--                    scope="col">{{head | titlecase}} <mdb-icon fas icon="sort"></mdb-icon>-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody #row>-->
+<!--              <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">-->
+<!--                <th >{{el.id}}</th>-->
+<!--                <td  class="red-text">{{el.student}}</td>-->
+<!--                <td >{{el.subject}}</td>-->
+<!--                <td >{{el.start_time}}</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--              <tfoot class="grey lighten-5 w-100">-->
+<!--              <tr>-->
+<!--                <td colspan="4">-->
+<!--                  <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tfoot>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="table-responsive">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="mat-elevation-z8">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <div class="col-md-6 mx-auto">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <div class="md-form">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <input type="text" class="form-control" [(ngModel)]="searchText" name="searchtext" (keyup)="searchItems()" id="search-input"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                       mdbInput>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <label for="search-input">Search</label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </div>&ndash;&gt;&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;            <table class="customers table align-items-center table-flush" mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef> {{column}} </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;              &lt;!&ndash; ID Column &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              <ng-container matColumnDef="student">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.student}} </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              &lt;!&ndash;    &lt;!&ndash; Progress Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="subject">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let row"> {{row.subject}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;              &lt;!&ndash; Color Column &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              <ng-container matColumnDef="time">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" *matHeaderCellDef mat-sort-header> Time </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td *matCellDef="let row" [style.color]="row.color"> 12 OCT, 4:30PM</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <ng-container matColumnDef="accept">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> accept </th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td  *matCellDef="let row" [style.color]="row.color">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ng-container>&ndash;&gt;-->
+<!--&lt;!&ndash;              <thead class="thead-dark-mine">&ndash;&gt;-->
+<!--&lt;!&ndash;              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              <tr mat-row *matRowDef="let row; columns: displayedColumns;">&ndash;&gt;-->
+<!--&lt;!&ndash;              </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;            </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;          <div class="mat-elevation-z8">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <table class="customers " mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;      <th mat-header-cell *matHeaderCellDef> {{column}} </th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash;    </ng-container>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; ID Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="student">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Student </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.student}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Progress Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="subject">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.subject}}% </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Name Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="location">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row"> {{row.location}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; Color Column &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="time">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.start_time}} </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <ng-container matColumnDef="accept">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                <td mat-cell *matCellDef="let row" [style.color]="row.color">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              </ng-container>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <tr mat-row *matRowDef="let row; columns: displayedColumns;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </table>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </div>&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash;          <table class="table">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <thead class=" text-primary">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Name&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Country&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              City&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <th class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Salary&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </thead>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Dakota Rice&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Niger&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Oud-Turnhout&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $36,738&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Minerva Hooper&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Curaçao&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Sinaai-Waas&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $23,789&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Sage Rodriguez&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Netherlands&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Baileux&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $56,142&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Philip Chaney&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Korea, South&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Overland Park&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $38,735&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Doris Greene&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Malawi&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Feldkirchen in Kärnten&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $63,542&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Mason Porter&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Chile&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Gloucester&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $78,615&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Jon Porter&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Portugal&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                Gloucester&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td class="text-right">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                $98,615&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <table class="table align-items-center table-flush">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <thead class="thead-dark-mine">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Student</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Subject</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <th scope="col">Location</th>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col">Time</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="col"></th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </thead>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <tr *ngFor="let schedule of schedules">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <th scope="row">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="media align-items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <a href="#" class="avatar rounded-circle mr-3">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <div class="media-body">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span class="mb-0 text-sm">{{schedule.student}}</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                {{schedule.subject}}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                      <span class="badge badge-dot mr-4">&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <i class="bg-warning"></i> {{schedule.location}}&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                      </span>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                {{schedule.start_time}}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <td >&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button type="button" class="btn btn-sm btn-success">Edit</button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button type="button" class="btn btn-sm btn-warning">Contact</button>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;              </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </tbody>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="card-footer py-4">&ndash;&gt;-->
+<!--&lt;!&ndash;          <nav aria-label="...">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ul class="pagination justify-content-end mb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item disabled">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#" tabindex="-1">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class="fas fa-angle-left"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="sr-only">Previous</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item active">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">1</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item"><a class="page-link" href="#">3</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="page-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="page-link" href="#">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class="fas fa-angle-right"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="sr-only">Next</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+
+  <!-- Dark table -->
+<!--  <div class="row mt-5">-->
+
+<!--    <div class="col">-->
+<!--      <div class="card bg-default shadow">-->
+<!--        <div class="card-header bg-transparent border-0">-->
+<!--          <h3 class="text-white mb-0">Card tables</h3>-->
+<!--        </div>-->
+<!--        <div class="table-responsive">-->
+<!--          <table class="table align-items-center table-dark table-flush">-->
+<!--            <thead class="thead-dark">-->
+<!--            <tr>-->
+<!--              <th scope="col">Project</th>-->
+<!--              <th scope="col">Budget</th>-->
+<!--              <th scope="col">Status</th>-->
+<!--              <th scope="col">Users</th>-->
+<!--              <th scope="col">Completion</th>-->
+<!--              <th scope="col"></th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--              <th scope="row">-->
+<!--                <div class="media align-items-center">-->
+<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">-->
+<!--                  </a>-->
+<!--                  <div class="media-body">-->
+<!--                    <span class="mb-0 text-sm">Argon Design System</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </th>-->
+<!--              <td>-->
+<!--                $2,500 USD-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-warning"></i> pending-->
+<!--                      </span>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="avatar-group">-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                  <span class="mr-2">60%</span>-->
+<!--                  <div>-->
+<!--                    <div class="progress">-->
+<!--                      <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td class="text-right">-->
+<!--                <div class="dropdown">-->
+<!--                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <i class="fas fa-ellipsis-v"></i>-->
+<!--                  </a>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <th scope="row">-->
+<!--                <div class="media align-items-center">-->
+<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/angular.jpg">-->
+<!--                  </a>-->
+<!--                  <div class="media-body">-->
+<!--                    <span class="mb-0 text-sm">Angular Now UI Kit PRO</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </th>-->
+<!--              <td>-->
+<!--                $1,800 USD-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                      <span class="badge badge-dot">-->
+<!--                        <i class="bg-success"></i> completed-->
+<!--                      </span>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="avatar-group">-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                  <span class="mr-2">100%</span>-->
+<!--                  <div>-->
+<!--                    <div class="progress">-->
+<!--                      <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td class="text-right">-->
+<!--                <div class="dropdown">-->
+<!--                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <i class="fas fa-ellipsis-v"></i>-->
+<!--                  </a>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <th scope="row">-->
+<!--                <div class="media align-items-center">-->
+<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/sketch.jpg">-->
+<!--                  </a>-->
+<!--                  <div class="media-body">-->
+<!--                    <span class="mb-0 text-sm">Black Dashboard</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </th>-->
+<!--              <td>-->
+<!--                $3,150 USD-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-danger"></i> delayed-->
+<!--                      </span>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="avatar-group">-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                  <span class="mr-2">72%</span>-->
+<!--                  <div>-->
+<!--                    <div class="progress">-->
+<!--                      <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td class="text-right">-->
+<!--                <div class="dropdown">-->
+<!--                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <i class="fas fa-ellipsis-v"></i>-->
+<!--                  </a>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <th scope="row">-->
+<!--                <div class="media align-items-center">-->
+<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/react.jpg">-->
+<!--                  </a>-->
+<!--                  <div class="media-body">-->
+<!--                    <span class="mb-0 text-sm">React Material Dashboard</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </th>-->
+<!--              <td>-->
+<!--                $4,400 USD-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                      <span class="badge badge-dot">-->
+<!--                        <i class="bg-info"></i> on schedule-->
+<!--                      </span>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="avatar-group">-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                  <span class="mr-2">90%</span>-->
+<!--                  <div>-->
+<!--                    <div class="progress">-->
+<!--                      <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td class="text-right">-->
+<!--                <div class="dropdown">-->
+<!--                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <i class="fas fa-ellipsis-v"></i>-->
+<!--                  </a>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <th scope="row">-->
+<!--                <div class="media align-items-center">-->
+<!--                  <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/vue.jpg">-->
+<!--                  </a>-->
+<!--                  <div class="media-body">-->
+<!--                    <span class="mb-0 text-sm">Vue Paper UI Kit PRO</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </th>-->
+<!--              <td>-->
+<!--                $2,200 USD-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-success"></i> completed-->
+<!--                      </span>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="avatar-group">-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                  <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                    <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                  <span class="mr-2">100%</span>-->
+<!--                  <div>-->
+<!--                    <div class="progress">-->
+<!--                      <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--              <td class="text-right">-->
+<!--                <div class="dropdown">-->
+<!--                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <i class="fas fa-ellipsis-v"></i>-->
+<!--                  </a>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <!-- Modal -->
+  <div class="modal fade" id="appointment-form-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Appointment request</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <form>
+              <!--              <div class="input-group mb-4">-->
+              <!--                <div class="input-group-prepend">-->
+              <!--                  <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>-->
+              <!--                </div>-->
+              <!--                <input class="form-control" placeholder="Search" type="text">-->
+              <!--              </div>-->
+              <igx-select [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+                <label igxLabel>Select Student</label>
+                <igx-select-item *ngFor="let item of optionsSelect" [value]="item.value">
+                  {{item.label}}
+                </igx-select-item>
+              </igx-select>
+              <igx-select [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+                <label igxLabel>Select Subject</label>
+                <igx-select-item *ngFor="let item of optionsSelect" [value]="item.value">
+                  {{item.label}}
+                </igx-select-item>
+              </igx-select>
+              <app-date-picker></app-date-picker>
+              <app-time-picker></app-time-picker>
+              <!--                <div class="example-config">-->
+              <!--                  Selected value is: {{value | kendoDate:'hh:mm:ss a'}}-->
+              <!--                </div>-->
+              <!--                  <kendo-timepicker [(value)]="value" ></kendo-timepicker>-->
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Include message ..."></textarea>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary">Send</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+<!--</div>-->

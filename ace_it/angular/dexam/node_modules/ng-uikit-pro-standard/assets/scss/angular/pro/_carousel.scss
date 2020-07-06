@@ -1,0 +1,30 @@
+.carousel-thumbnails {
+  margin-bottom: $carousel-thumbnails-mb;
+
+  .carousel-indicators {
+    margin-bottom: $carousel-thumbnails-indicators-mb;
+    position: absolute;
+    left: 0;
+
+    li {
+      height: auto;
+      width: $carousel-thumbnails-indicators-li-width;
+      max-width: $carousel-thumbnails-indicators-li-max-width;
+      border: none;
+    }
+
+    .active {
+      @extend .white;
+      height: auto;
+      width: auto;
+      opacity: $carousel-thumbnails-indicators-active-opacity;
+    }
+
+    img {
+      max-width: $carousel-thumbnails-indicators-li-max-width;
+      height: auto;
+      overflow: hidden;
+      display: block;
+    }
+  }
+}

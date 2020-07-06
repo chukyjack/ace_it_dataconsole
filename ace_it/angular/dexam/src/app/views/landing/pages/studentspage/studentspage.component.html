@@ -1,0 +1,733 @@
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+  <div class="container-fluid">
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Brand -->
+    <a class="navbar-brand pt-0" href="../index.html">
+      <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+    </a>
+    <!-- User -->
+    <ul class="nav align-items-center d-md-none">
+      <li class="nav-item dropdown">
+        <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="ni ni-bell-55"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg
+">
+              </span>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+          <div class=" dropdown-header noti-title">
+            <h6 class="text-overflow m-0">Welcome!</h6>
+          </div>
+          <a href="./examples/profile.html" class="dropdown-item">
+            <i class="ni ni-single-02"></i>
+            <span>My profile</span>
+          </a>
+          <a href="./examples/profile.html" class="dropdown-item">
+            <i class="ni ni-settings-gear-65"></i>
+            <span>Settings</span>
+          </a>
+          <a href="./examples/profile.html" class="dropdown-item">
+            <i class="ni ni-calendar-grid-58"></i>
+            <span>Activity</span>
+          </a>
+          <a href="./examples/profile.html" class="dropdown-item">
+            <i class="ni ni-support-16"></i>
+            <span>Support</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#!" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+      <!-- Collapse header -->
+      <div class="navbar-collapse-header d-md-none">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a href="../index.html">
+              <img src="../assets/img/brand/blue.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Form -->
+<!--      <form class="mt-4 mb-3 d-md-none">-->
+<!--        <div class="input-group input-group-rounded input-group-merge">-->
+<!--          <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">-->
+<!--          <div class="input-group-prepend">-->
+<!--            <div class="input-group-text">-->
+<!--              <span class="fa fa-search"></span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+      <!-- Navigation -->
+      <app-navigations></app-navigations>
+      <!-- Divider -->
+      <hr class="my-3">
+
+      <!-- Navigation -->
+      <app-lower-nav></app-lower-nav>
+    </div>
+  </div>
+</nav>
+<div class="main-content">
+  <!-- Navbar -->
+  <nav class="navbar-new navbar-top navbar-expand-md " id="navbar-main">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html"> <i class="ni ni-single-02"></i> MY STUDENTS
+      </a>
+      <!-- Form -->
+<!--      <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">-->
+<!--        <div class="form-group mb-0">-->
+<!--          <div class="input-group input-group-alternative">-->
+<!--            <div class="input-group-prepend">-->
+<!--              <span class="input-group-text"><i class="fas fa-search"></i></span>-->
+<!--            </div>-->
+<!--            <input class="form-control" placeholder="Search" type="text">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+      <!-- User -->
+      <app-top-nav></app-top-nav>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <!-- Header -->
+<!--  <div class="header bg-default pb-8 pt-5 pt-md-8">-->
+<!--    <div class="container-fluid">-->
+<!--      <div class="header-body">-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="container-fluid ">-->
+    <!-- Table -->
+  <div class="container">
+    <div class="row">
+
+
+        <div class="col-md-6 mx-auto">
+          <!--      <div class="md-form">-->
+          <!--        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"-->
+          <!--               mdbInput>-->
+          <!--        <label for="search-input">Search</label>-->
+          <h3 class="centre-text">Students</h3>
+          <!--      </div>-->
+        </div>
+        <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1 table-sm table-modify">
+          <thead class="sticky-top table-head">
+
+          <tr>
+            <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
+                scope="col">{{head | titlecase}}
+            </th>
+
+          </tr>
+
+          </thead>
+          <tbody #row class="align-items-center">
+          <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let user of associatedUsers; let i = index">
+            <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">
+              <div class="media align-items-center">
+                <a class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                  <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                </a>
+                <span class="space-out">{{user.first_name}} {{user.last_name}}</span>
+                </div>
+              </td>
+            <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="align-vertical"><div class="media align-items-center">
+              <span class="text-sm ">{{user.phone || user.email}}</span></div></td>
+            <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="align-vertical">{{user.subject}}</td>
+            <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="align-vertical">
+              <a data-toggle="modal" data-target="#basicExample" (click)="frame.show()" >Details <mdb-icon fas icon="caret-down"></mdb-icon>
+              </a>
+            </td>
+            <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog cascading-modal modal-avatar" role="document">
+                <!--Content-->
+                <div class="modal-content">
+
+                  <!--Header-->
+                  <div class="modal-header">
+                    <img src="../assets/img/theme/team-1-800x800.jpg" alt="avatar"
+                         class="rounded-circle img-responsive">
+                  </div>
+                  <!--Body-->
+                  <div class="modal-body ">
+
+                    <h5 class="mt-1 mb-2 text-center">{{user.first_name}} {{user.last_name}}</h5>
+                    <div *ngIf="user.statement" class=" ml-0 mr-0">
+                      {{user.statement}}
+                    </div>
+                    <div class="col-md-12">
+                      <hr>
+                    </div>
+
+                    <div class="page-content">
+                      <div class="row">
+
+                        <div class="col-md-9">
+                          <h6 class="section-title"><strong>{{user.role}} details</strong></h6>
+                          <div class="row">
+                            <div *ngIf="user.level" class="col-md-3 section-heading text-dark">
+                              Level:
+                            </div>
+                            <div class="col-md-9">
+                              {{user.level}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 section-heading text-dark">
+                              Subject:
+                            </div>
+                            <div class="col-md-6">
+                            {{user.subject}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3 section-heading text-dark">
+                              Address:
+                            </div>
+                            <div class="col-md-9">
+                              {{user.location}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 section-heading text-dark">
+                              Phone number:
+                            </div>
+                            <div class="col-md-6">
+                              {{user.phone}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 section-heading text-dark">
+                              Email:
+                            </div>
+                            <div class="col-md-6">
+                              {{user.email}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 section-heading text-dark">
+                              Hobbies:
+                            </div>
+                            <div class="col-md-6">
+                              {{user.hobbies}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <hr>
+                        </div>
+<!--                        <div class="col-md-9">-->
+<!--                          <h4 class="section-title"><strong>Additional details</strong></h4>-->
+<!--                          <div class="row">-->
+<!--                            <div class="col-md-12">-->
+
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-12">-->
+<!--                          <hr>-->
+<!--                        </div>-->
+                      </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                      <button mdbBtn color="amber" rounded="true" class="mt-1 waves-light" mdbWavesEffect>Contact
+                        <mdb-icon fas icon="sign-in-alt" class="ml-1"></mdb-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+                <!--/.Content-->
+              </div>
+            </div>
+          </tr>
+          </tbody>
+          <tfoot class="grey lighten-5 w-100">
+          <tr>
+            <td colspan="4">
+              <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements"></mdb-table-pagination>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
+    </div>
+  </div>
+<!--    <div class="row">-->
+<!--      <div class="col">-->
+<!--        <div class="card shadow">-->
+<!--          <div class="card-header border-0">-->
+<!--          </div>-->
+<!--          <div class="table-responsive">-->
+<!--            <table class="table align-items-center table-flush">-->
+<!--              <thead class="thead-dark">-->
+<!--              <tr>-->
+<!--                <th scope="col">Name</th>-->
+<!--                <th scope="col">Subject</th>-->
+<!--                <th scope="col">Contact</th>-->
+<!--                <th scope="col">No. of sessions</th>-->
+<!--                <th scope="col"></th>-->
+<!--                <th scope="col"></th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <th scope="row">-->
+<!--                  <div class="media align-items-center">-->
+<!--                    <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">-->
+<!--                    </a>-->
+<!--                    <div class="media-body">-->
+<!--                      <span class="mb-0 text-sm">Argon Design System</span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                  $2,500 USD-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-warning"></i> pending-->
+<!--                      </span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="avatar-group">-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="d-flex align-items-center">-->
+<!--                    <span class="mr-2">60%</span>-->
+<!--                    <div>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-right">-->
+<!--                  &lt;!&ndash;                  <div class="dropdown">&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&ndash;&gt;-->
+<!--                  &lt;!&ndash;                      <i class="fas fa-ellipsis-v"></i>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">&ndash;&gt;-->
+<!--                  &lt;!&ndash;                      <a class="dropdown-item" href="#">Action</a>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                      <a class="dropdown-item" href="#">Another action</a>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                      <a class="dropdown-item" href="#">Something else here</a>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-profile">View Profile</button>-->
+
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">-->
+<!--                  <div class="media align-items-center">-->
+<!--                    <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/angular.jpg">-->
+<!--                    </a>-->
+<!--                    <div class="media-body">-->
+<!--                      <span class="mb-0 text-sm">Angular Now UI Kit PRO</span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                  $1,800 USD-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                      <span class="badge badge-dot">-->
+<!--                        <i class="bg-success"></i> completed-->
+<!--                      </span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="avatar-group">-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="d-flex align-items-center">-->
+<!--                    <span class="mr-2">100%</span>-->
+<!--                    <div>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-right">-->
+<!--                  <div class="dropdown">-->
+<!--                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">-->
+<!--                  <div class="media align-items-center">-->
+<!--                    <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/sketch.jpg">-->
+<!--                    </a>-->
+<!--                    <div class="media-body">-->
+<!--                      <span class="mb-0 text-sm">Black Dashboard</span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                  $3,150 USD-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-danger"></i> delayed-->
+<!--                      </span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="avatar-group">-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="d-flex align-items-center">-->
+<!--                    <span class="mr-2">72%</span>-->
+<!--                    <div>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-right">-->
+<!--                  <div class="dropdown">-->
+<!--                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">-->
+<!--                  <div class="media align-items-center">-->
+<!--                    <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/react.jpg">-->
+<!--                    </a>-->
+<!--                    <div class="media-body">-->
+<!--                      <span class="mb-0 text-sm">React Material Dashboard</span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                  $4,400 USD-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                      <span class="badge badge-dot">-->
+<!--                        <i class="bg-info"></i> on schedule-->
+<!--                      </span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="avatar-group">-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="d-flex align-items-center">-->
+<!--                    <span class="mr-2">90%</span>-->
+<!--                    <div>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-right">-->
+<!--                  <div class="dropdown">-->
+<!--                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">-->
+<!--                  <div class="media align-items-center">-->
+<!--                    <a href="#" class="avatar rounded-circle mr-3">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/vue.jpg">-->
+<!--                    </a>-->
+<!--                    <div class="media-body">-->
+<!--                      <span class="mb-0 text-sm">Vue Paper UI Kit PRO</span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                  $2,200 USD-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                      <span class="badge badge-dot mr-4">-->
+<!--                        <i class="bg-success"></i> completed-->
+<!--                      </span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="avatar-group">-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">-->
+<!--                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="d-flex align-items-center">-->
+<!--                    <span class="mr-2">100%</span>-->
+<!--                    <div>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-right">-->
+<!--                  <div class="dropdown">-->
+<!--                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--          <div class="card-footer py-4">-->
+<!--            <nav aria-label="...">-->
+<!--              <ul class="pagination justify-content-end mb-0">-->
+<!--                <li class="page-item disabled">-->
+<!--                  <a class="page-link" href="#" tabindex="-1">-->
+<!--                    <i class="fas fa-angle-left"></i>-->
+<!--                    <span class="sr-only">Previous</span>-->
+<!--                  </a>-->
+<!--                </li>-->
+<!--                <li class="page-item active">-->
+<!--                  <a class="page-link" href="#">1</a>-->
+<!--                </li>-->
+<!--                <li class="page-item">-->
+<!--                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                <li class="page-item">-->
+<!--                  <a class="page-link" href="#">-->
+<!--                    <i class="fas fa-angle-right"></i>-->
+<!--                    <span class="sr-only">Next</span>-->
+<!--                  </a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </nav>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!-- Dark table -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+      <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+          <div class="card card-user">
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="assets/images/landing/profilepic.jpg" alt="...">
+                  <h5 class="title">Chet Faker</h5>
+                </a>
+                <p class="description">
+                  @chetfaker
+                </p>
+              </div>
+              <p class="description text-center">
+                "I like the way you work it
+                <br> No diggity
+                <br> I wanna bag it up"
+              </p>
+            </div>
+            <div class="card-footer">
+              <hr>
+              <div class="button-container">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                    <h5>12
+                      <br>
+                      <small>Files</small>
+                    </h5>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                    <h5>2GB
+                      <br>
+                      <small>Used</small>
+                    </h5>
+                  </div>
+                  <div class="col-lg-3 mr-auto">
+                    <h5>24,6$
+                      <br>
+                      <small>Spent</small>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!--          <div class="modal-header">-->
+<!--            <h6 class="modal-title" id="modal-title-default">Type your modal title</h6>-->
+<!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--              <span aria-hidden="true">×</span>-->
+<!--            </button>-->
+<!--          </div>-->
+
+<!--          <div class="modal-body">-->
+
+<!--            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>-->
+<!--            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>-->
+
+<!--          </div>-->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Message</button>
+            <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+<!--</div>-->

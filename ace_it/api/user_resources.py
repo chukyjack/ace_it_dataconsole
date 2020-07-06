@@ -19,7 +19,8 @@ from api.authorization import UserWithContractAuthorization
 from tastypie import fields
 
 MyUser = get_user_model()
-
+import logging
+logger = logging.getLogger()
 
 class UserResource(ModelResource):
 
@@ -97,6 +98,13 @@ class UserResource(ModelResource):
         self.throttle_check(request)
         user = request.user
         session_users = []
+        logger.info('##############')
+        logger.info('##############')
+        logger.info('##############')
+        logger.info(user)
+        logger.info('##############')
+        logger.info('##############')
+        logger.info('##############')
         if user.userprofile.role == 'student':
             session_users = SessionContract.objects.filter(student=user).values_list('tutor_id')
         elif user.userprofile.role == 'tutor':
@@ -109,6 +117,13 @@ class UserResource(ModelResource):
         self.method_check(request, allowed=['get'])
         self.is_authenticated(request)
         self.throttle_check(request)
+        logger.info('##############')
+        logger.info('##############')
+        logger.info('##############')
+        logger.info(request)
+        logger.info('##############')
+        logger.info('##############')
+        logger.info('##############')
         user_session_data = set_user_details(request)
         return self.create_response(request, user_session_data)
 

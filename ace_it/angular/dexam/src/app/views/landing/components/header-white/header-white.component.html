@@ -1,0 +1,56 @@
+<nav id="home-header" [ngClass]="{'header-fixed': isFixed}" class="navbar navbar-expand-lg text-16 ">
+    <div class="container">
+
+
+        <div class="d-flex flex-grow-1 mobile_menu">
+            <span class="w-100 d-lg-none d-block">
+        <!-- hidden spacer to center brand on mobile --></span>
+            <!-- <a class="navbar-brand d-none d-lg-inline-block" href="#">
+    Navbar 6
+  </a> -->
+            <a class="navbar-brand-two mx-auto  d-inline-block" href="#">
+                <img src="./assets/images/landing/lOGO_d/logo_white.png" alt="logo">
+            </a>
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <span class="navbar-toggler-icon">
+            <i class="eva eva-menu-outline text-30 text-white"></i>
+          </span>
+
+        </button>
+            </div>
+        </div>
+        <div class="collapse  navbar-collapse flex-grow-1 text-right" id="collapseExample" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item">
+                    <a href="#" scrollTo="intro-wrap" class="nav-link m-2 menu-item nav-active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="features-wrap" class="nav-link m-2 menu-item nav-active">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="services-wrap" class="nav-link m-2 menu-item">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="works-wrap" class="nav-link m-2 menu-item">Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="pricing-wrap" class="nav-link m-2 menu-item">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="teams-wrap" class="nav-link m-2 menu-item">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="testimonials-wrap" class="nav-link m-2 menu-item">Testimonial</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" scrollTo="news-wrap" class="nav-link m-2 menu-item">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" scrollTo="contacts-wrap" class="nav-link m-2 menu-item">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -46,7 +46,7 @@ class SessionResource(ModelResource):
         fields = ['id', 'type', 'duration', 'distance', 'details', 'location',
                   'is_assigned', 'start_date', 'student', 'frequency', 'additional_notes', 'has_materials']
         limit = 0
-        # authentication = SillyAuthentication
+        authentication = Authentication()
         authorization = OpportunityAuthorization()
 
     def prepend_urls(self):

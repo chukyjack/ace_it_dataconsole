@@ -1,0 +1,15 @@
+$font-family-heading: 'Nunito',
+sans-serif;
+$font-family-base: 'Nunito',
+sans-serif;
+$font-size-base: .813rem;
+// LAYOUT VARS
+$topbar-height: 80px;
+$topbar-height-mobile: 70px;
+$sidebar-left-width: 120px;
+$sidebar-left-secondary-width: 220px;
+$side-clearance: 20px;
+$body-text-color:#333;
+$main-gradient:linear-gradient(-29deg, rgb(193, 15, 65) 0, rgb(35, 59, 136) 100%);
+$transparent-gradient:linear-gradient(-29deg, rgba(193, 15, 65, 0.8) 0, rgb(35, 59, 136) 100%);
+$extra-transparent-gradient:linear-gradient(-29deg, rgba(193, 15, 65, 0.8) 0, rgba(35, 59, 136, 0.8) 100%);

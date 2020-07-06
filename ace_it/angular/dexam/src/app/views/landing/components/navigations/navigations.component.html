@@ -1,0 +1,46 @@
+<ul class="navbar-nav">
+  <li class="nav-item " *ngIf="user.role == 'student'">
+    <a class=" nav-link " [routerLink]="['/landing/dashboard']"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " [routerLink]="['/landing/schedule']">
+      <i class="ni ni-planet text-blue"></i> Schedule
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'tutor'">
+    <a class="nav-link " [routerLink]="['/landing/opportunities']">
+      <i class="ni ni-pin-3 text-orange"></i> Tutoring Opportunities
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'staff'">
+    <a class="nav-link " [routerLink]="['/landing/gigs']">
+      <i class="ni ni-pin-3 text-orange"></i> Quick gigs
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'staff'">
+    <a class="nav-link " [routerLink]="['/landing/chat']">
+      <i class="ni ni-single-02 text-yellow"></i> Messages
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'tutor'">
+    <a class="nav-link  active " [routerLink]="['/landing/billing']">
+      <i class="ni ni-bullet-list-67 text-red"></i> Billing
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'tutor'">
+    <a class="nav-link" [routerLink]="['/landing/students']">
+      <i class="ni ni-key-25 text-info"></i> Students
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="user.role == 'staff'">
+    <a class="nav-link" [routerLink]="['/landing/tutors']">
+      <i class="ni ni-circle-08 text-pink"></i> Tutors
+    </a>
+  </li>
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link" [routerLink]="['/landing/profile']">-->
+<!--      <i class="ni ni-key-25 text-info"></i> Profile-->
+<!--    </a>-->
+<!--  </li>-->
+</ul>

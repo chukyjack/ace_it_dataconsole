@@ -5,3 +5,4 @@ WORKDIR /ace_it_dataconsole
 COPY ./requirements.txt /ace_it_dataconsole/
 RUN pip install -r requirements.txt
 COPY . /ace_it_dataconsole/
+EXPOSE 80

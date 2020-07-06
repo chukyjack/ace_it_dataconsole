@@ -1,29 +1,38 @@
 from django.contrib.auth import get_user_model
 from session.models import SessionUnit
+from userprofile.models import UserProfile
 User = get_user_model()
 
 
 def set_user_details(request):
     data = {}
+    user = request.user
+
+    try:
+        user_profile = user.userprofile
+    except UserProfile.DoesNotExist:
+        user_profile = UserProfile.objects.create(user=user)
+
+    user.refresh_from_db()
     data['token'] = 'demotoken'
-    data['id'] = request.user.id
-    data['username'] = request.user.username
-    data['email'] = request.user.email
-    data['first_name'] = request.user.first_name
-    data['last_name'] = request.user.last_name
-    data['address'] = request.user.userprofile.address
+    data['id'] = user.id
+    data['username'] = user.username
+    data['email'] = user.email
+    data['first_name'] = user.first_name
+    data['last_name'] = user.last_name
+    data['address'] = user_profile.address
     data['city'] = 'N/a'
     data['zipcode'] = 00000
     data['country'] = 'N/a'
-    data['personal_statement'] = request.user.userprofile.personal_statement
-    data['role'] = request.user.userprofile.role if request.user.userprofile else 'staff'
-    if request.user.userprofile.role == 'tutor':
+    data['personal_statement'] = user_profile.personal_statement
+    data['role'] = user_profile.role if user_profile else 'staff'
+    if user_profile.role == 'tutor':
         data['degree'] = 'University of X'
         data['title'] = 'Tutors title'
     request.session['user_details'] = data
-    if request.user.userprofile.role == 'student':
+    if user_profile.role == 'student':
         try:
-            data['session_unit'] = float(request.user.session_unit.value)
+            data['session_unit'] = float(user.session_unit.value)
         except SessionUnit.DoesNotExist:
             data['session_unit'] = 0
     return data

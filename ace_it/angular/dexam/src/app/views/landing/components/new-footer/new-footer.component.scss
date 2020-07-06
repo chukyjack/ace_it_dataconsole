@@ -1,0 +1,37 @@
+@media (min-width: 46.875em) {
+  .site-footer__container {
+    display: block;
+  }
+}
+@media (min-width: 46.875em) {
+  .site-footer {
+    padding: 0 10px;
+  }
+}
+.site-footer {
+  background-color: #2c4872;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+@media (min-width: 46.875em) {
+  .site-footer__about {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+}
+.site-footer__about {
+  position: relative;
+  background: #2c4872;
+}
+@media (min-width: 46.875em) {
+  .site-footer__top {
+    padding-bottom: 2em;
+  }
+}
+.site-footer__top {
+  background: #2c4872;
+}
+.site-footer--legal__background {
+  background-color: #153154;
+}

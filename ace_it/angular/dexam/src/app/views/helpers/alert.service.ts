@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AlertService {
+
+  constructor() { }
+
+  // showSuccess(data: any) {
+  //   this.alert.success(data.msg);
+  // }
+  // showError(data: any) {
+  //   this.alert.error(data.msg);
+  // }
+
+}

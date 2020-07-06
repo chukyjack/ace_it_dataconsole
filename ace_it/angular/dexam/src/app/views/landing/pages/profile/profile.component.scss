@@ -1,0 +1,49 @@
+.bg-default{
+  background-color: #22356e !important;
+  padding-top: 0rem !important;
+}
+.bg-secondary{
+  background-color: #eeeeee !important;
+}
+
+.fix-header{
+  //min-height: 100px;
+  background-color: #22356e !important;
+  //background-image: url(../assets/img/theme/profile-cover.jpg);
+  background-size: cover;
+  background-position: center top;
+}
+
+.centre-form {
+  width: 100%;
+  margin: auto !important;
+  display: inherit;
+}
+.centre {
+  margin: auto;
+  width: 100%;
+  border: 3px solid green;
+  //padding: 10px;
+}
+.centre-button {
+  margin: auto !important;
+  width: 30%;
+  background-color: #4285f4  !important;
+  //padding: 10px;
+}
+//.lever:after {
+//  background-color: #22356e !important;
+//  left: 1.5rem;
+//}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #4285f4 ;
+  left: 1.5rem;
+}
+.orange-button{
+  background-color: #ff9800 !important;
+}
+.pb-8,
+.py-8 {
+  padding-bottom: 4rem !important;
+}

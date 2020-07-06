@@ -32,7 +32,17 @@ class UserAuthorization(Authorization):
 class OpportunityAuthorization(Authorization):
 
     def read_list(self, object_list, bundle):
+        import logging
+        logger = logging.getLogger()
+        logger.info(bundle.request.user)
         user = bundle.request.user
+        logger.warning('##############')
+        logger.warning('##############')
+        logger.warning('##############')
+        logger.warning(user)
+        logger.info('##############')
+        logger.info('##############')
+        logger.info('##############')
         interested_sessions = user.session_interest.all().values_list('session__id', flat=True)
         return object_list.exclude(id__in=interested_sessions)
 

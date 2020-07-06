@@ -1,0 +1,77 @@
+@import 'variables';
+@import 'themes/themes';
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "~eva-icons/style/eva-icons.css";
+@import 'globals/globals';
+[tabindex='-1']:focus {
+    outline: none;
+}
+
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 0;
+}
+
+select,
+button,
+textarea,
+input {
+    vertical-align: baseline;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    &[dir=rtl],
+    &[dir=ltr] {
+        unicode-bidi: embed
+    }
+}
+
+bdo[dir=rtl] {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+bdo[dir=ltr] {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #003473;
+    color: white;
+}

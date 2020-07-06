@@ -1,0 +1,4 @@
+email,first_name,last_name,title,due_day,reviewer_email,time_zone,active_group_names,location,employee_id,job_description,strengths,add_to_groups,remove_from_groups,start_date,is_active
+jane@example.com,Jane,Doe,CEO,Monday,alice@example.com,America/New_York,"~Department~Sales, NY Team",New York,9000,Maintain administrative staff by recruiting and training employees,"Analytical skills, Communication (written & oral), Dependability, Flexibility, Teamwork","Product, Squad 2",Sales,04/29/2020,y
+johnx@example.com,Jane,Doe,CEO,Monday,alice@example.com,America/New_York,"~Squad~Engineering, California Team, ~Location~North Carolina",New York,9000,Maintain administrative staff by recruiting and training employees,"Analytical skills, Communication (written & oral), Dependability, Flexibility, Teamwork","Product, Squad 2",Sales,04/29/2020,y
+

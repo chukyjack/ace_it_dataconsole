@@ -3,14 +3,41 @@ version: '3'
 services:
   db:
     image: postgres
+    env_file: .env
+    networks:
+      - backend-net
+
   web:
+    container_name: web
     build:
       context: .
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:80
     volumes:
       - .:/ace_it_dataconsole
     ports:
-      - "8000:8000"
+      - "80:80"
     depends_on:
       - db
+    networks:
+      - backend-net
+    hostname: skozoo.me
+
+  front-end:
+    container_name: front-end
+    build: angular
+    volumes:
+      - ./angular:/front-end
+      - ./angular/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    ports:
+      - "8080:80"
+    networks:
+      - backend-net
+    depends_on:
+      - web
+
+
+networks:
+  backend-net:
+    driver: bridge
+

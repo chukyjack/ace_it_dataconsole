@@ -1,0 +1,91 @@
+<section id="expandable-wrap" class="best-wrap light-gray">
+
+  <div class="container">
+    <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2019">
+    <!--    <div class="mat-elevation-z8">-->
+    <!--    <mat-form-field>-->
+    <!--      <label>-->
+    <!--        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">-->
+    <!--      </label>-->
+    <!--    </mat-form-field>-->
+    <table class="customers" mat-table
+           [dataSource]="dataSource" multiTemplateDataRows
+    >
+      <!--  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">-->
+      <!--    <th mat-header-cell *matHeaderCellDef> {{column}} </th>-->
+      <!--    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>-->
+      <!--  </ng-container>-->
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Subject </th>
+        <td mat-cell *matCellDef="let row"> {{row.subject}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="duration">
+        <th mat-header-cell *matHeaderCellDef> Duration(hrs) </th>
+        <td mat-cell *matCellDef="let row"> {{row.duration}} </td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Distance </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.distance}} </td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.color"> <div [class.example-expanded-row]="expandedElement === row"
+                                                                           (click)="expandedElement = row">details<span class="caret" ></span></div> </td>
+      </ng-container>
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div class="example-element-detail"
+               [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="example-element-diagram row">
+              <!--          <div class="example-element-position"> {{element.position}} </div>-->
+              <!--          <div class="example-element-symbol"> {{element.symbol}} </div>-->
+              <!--          <div class="example-element-name"> {{element.name}} </div>-->
+              <!--          <div class="example-element-weight"> {{element.weight}} </div>-->
+
+              <div class="logo-image-small">
+                <img src="assets/images/landing/profilepic.jpg">
+              </div>
+            </div>
+            <div class="example-element-description col-md-10">
+              {{element.description}}
+              <span class="example-element-description-attribution"> </span>
+            </div>
+            <div class="col-md-2">
+              <div><a class="btn btn-primary" (click)="acceptOpportunity(element)">Accept </a>  </div>
+              <div><a class="btn btn-warning"> Decline </a>  </div>
+            </div>
+
+          </div>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+          class="example-element-row"
+          >
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+
+    <!--    </div>-->
+  </div>
+</section>
+<!--&lt;!&ndash; Copyright 2018 Google Inc. All Rights Reserved.-->
+<!--    Use of this source code is governed by an MIT-style license that-->
+<!--    can be found in the LICENSE file at http://angular.io/license &ndash;&gt;-->
