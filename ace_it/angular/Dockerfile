@@ -13,6 +13,7 @@ COPY dexam /front-end
 
 RUN npm rebuild node-sass
 
+RUN ng update @angular/cli
 # Build app
 RUN npm run build --prefix dexam -- --output-path=./dist/out
 
