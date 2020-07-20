@@ -13,9 +13,8 @@ COPY dexam /front-end
 
 RUN npm rebuild node-sass
 
-RUN ng update @angular/cli
 # Build app
-RUN npm run build --prefix dexam -- --output-path=./dist/out
+RUN npm run build --prefix dexam -- --verbose --progress --output-path=./dist/out
 
 
 FROM nginx:1.15.7-alpine
