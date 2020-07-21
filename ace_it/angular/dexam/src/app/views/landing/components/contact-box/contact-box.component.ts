@@ -33,6 +33,9 @@ export class ContactBoxComponent implements OnInit {
       this.step5 = false;
     }
   };
+  send() {
+
+  };
 }
 
 class name {

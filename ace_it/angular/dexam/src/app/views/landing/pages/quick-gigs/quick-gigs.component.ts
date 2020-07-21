@@ -27,6 +27,7 @@ export class QuickGigsComponent implements OnInit,  OnDestroy {
   gigs$: Observable<Gig[]>;
   gigs1: Observable<Gig[]>;
   isLoading: boolean;
+  hasMore: boolean;
   public OutGigs;
   public userId;
   public realGigs = [];
@@ -44,26 +45,30 @@ export class QuickGigsComponent implements OnInit,  OnDestroy {
     console.log('this is gigs');
     console.log(this.gigs1);
     console.log('this is gigs');
+    this.hasMore = this.gigsService.page.hasMore;
 
     // this.isLoading$ = this.gigsQuery.selectLoading();
   }
 
   onScroll() {
-    this.gigsService.isLoading = true;
+    this.isLoading = this.gigsService.isLoading = true;
+    this.hasMore = this.gigsService.page.hasMore;
     this.fetchGigs();
   }
 
   private fetchGigs() {
     if (this.gigsService.page.hasMore) {
-      this.gigsService.isLoading = true;
+      this.isLoading = this.gigsService.isLoading = true;
       this.realGigs = this.gigsService.get(this.gigs1, this.gigsService.page.nextPage);
     }
     console.log('final gigs to display');
     console.log(this.realGigs);
-    this.gigsService.isLoading = false;
+    this.isLoading = this.gigsService.isLoading = false;
+    this.hasMore = this.gigsService.page.hasMore;
   }
   ngOnDestroy() {
     this.gigsService.reset();
+    this.hasMore = this.gigsService.page.hasMore;
   }
   getSessionDetails() {
     this._expandPaginateTableService.setUserSessionDetails().subscribe(
@@ -78,7 +83,8 @@ export class QuickGigsComponent implements OnInit,  OnDestroy {
     );
   }
   getMyData() {
-    this.gigsService.isLoading = true;
+    this.isLoading = this.gigsService.isLoading = true;
+    this.hasMore = this.gigsService.page.hasMore;
     this.gigsService.list().subscribe(
         res => {
           console.log(res);

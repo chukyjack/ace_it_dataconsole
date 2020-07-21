@@ -195,10 +195,10 @@
         </div>
       </section>
 
-      <div class="alert alert-dark"*ngIf="gigsService.isLoading">
+      <div class="alert alert-dark"*ngIf="isLoading">
         Fetching gigs...
       </div>
-      <div class="container row" *ngIf="gigsService.page.hasMore">
+      <div class="container row" *ngIf="hasMore">
         <button (click)="onScroll()" type="button" class="btn btn-outline-primary waves-effect centre-button">Show more</button>
       </div>
 

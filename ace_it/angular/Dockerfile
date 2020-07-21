@@ -14,7 +14,8 @@ COPY dexam /front-end
 RUN npm rebuild node-sass
 
 # Build app
-RUN npm run build --prefix dexam -- --verbose --progress --output-path=./dist/out
+#RUN npm run build --prefix dexam --max_old_space_size=8192 --build-optimizer -- --verbose --progress --output-path=./dist/out
+RUN node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer -- --verbose --progress --output-path=./dist/out
 
 
 FROM nginx:1.15.7-alpine
