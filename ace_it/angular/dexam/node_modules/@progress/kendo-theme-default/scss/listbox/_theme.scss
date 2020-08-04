@@ -1,22 +1,15 @@
 @include exports("listbox/theme") {
-    $listbox-drag-clue-bg: $list-item-selected-bg !default;
-    $listbox-drag-clue-text: $list-item-selected-text !default;
 
     .k-listbox {
         .k-list-scroller {
-            background-color: $widget-bg;
-            border-color: $widget-border;
-            color: $widget-text;
-            background-clip: padding-box;
-
-            .k-ie11 &,
-            .k-edge12 &,
-            .k-edge13 & {
-                background-clip: border-box;
-            }
+            @include fill(
+                $listbox-text,
+                $listbox-bg,
+                $listbox-border
+            );
         }
         .k-drop-hint {
-            border-top-color: $accent;
+            border-top-color: $primary;
         }
     }
 

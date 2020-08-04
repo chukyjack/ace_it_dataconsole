@@ -1,20 +1,3 @@
-// TODO: chart variables
-
-$chart-crosshair-background: rgba(0, 0, 0, .5) !default;
-$chart-crosshair-shared-tooltip-color: $base-text !default;
-$chart-crosshair-shared-tooltip-background: $base-bg !default;
-$chart-crosshair-shared-tooltip-border: rgba(0, 0, 0, .08) !default;
-
-$chart-notes-background: rgba(0, 0, 0, .5) !default;
-$chart-notes-border: rgba(0, 0, 0, .5) !default;
-$chart-notes-lines: rgba(0, 0, 0, .5) !default;
-
-$error-bars-background: rgba(0, 0, 0, .5) !default;
-
-$chart-selection-marque-background: $series-a !default;
-$selection-border-color: rgba(0, 0, 0, .08) !default;
-$selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
-
 @include exports("dataviz/charts/theme") {
     // Exported variables
     .k-var--chart-inactive {
@@ -57,20 +40,26 @@ $selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
     .k-chart,
     .k-sparkline,
     .k-stockchart {
-        background-color: transparent;
+        @extend .k-text-selection !optional;
+        @include fill(
+            $chart-text,
+            transparent,
+            $chart-border
+        );
 
         .k-popup {
             background: transparent;
         }
     }
 
-    .k-chart-tooltip {
-        @include border-radius();
-        color: $widget-bg;
-    }
 
+    // Tooltip
+    // TODO
+    .k-chart-tooltip {
+        color: $component-bg;
+    }
     .k-chart-tooltip-inverse {
-        color: invert($widget-bg);
+        color: invert($component-bg);
     }
 
     .k-chart-crosshair-tooltip,
@@ -91,10 +80,20 @@ $selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
 
     .k-handle {
         cursor: e-resize;
-        @include appearance( button );
+        @include fill(
+            $button-text,
+            $button-bg,
+            $button-border,
+            $button-gradient
+        );
 
         &:hover {
-            @include appearance( hovered-button );
+            @include fill(
+                $button-hovered-text,
+                $button-hovered-bg,
+                $button-hovered-border,
+                $button-hovered-gradient
+            );
         }
     }
 
@@ -103,7 +102,7 @@ $selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
     }
 
     .k-mask {
-        background-color: $widget-bg;
+        background-color: $component-bg;
         opacity: .8;
     }
 
@@ -114,11 +113,6 @@ $selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
     .k-marquee-color {
         opacity: .6;
     }
-
-    // Navigator hint
-    .k-navigator-hint .k-scroll {
-        @include border-radius();
-    }
 }
 
 
@@ -128,21 +122,31 @@ $selection-shadow: inset 0 1px 7px rgba(0, 0, 0, .15) !default;
 
     // Treemap
     .k-treemap {
+        @include fill(
+            $component-text,
+            $component-bg,
+            $component-border
+        );
 
         // Title
         .k-treemap-title {
-            @include appearance( header );
+            @include fill(
+                $header-text,
+                $header-bg,
+                $header-border,
+                $header-gradient
+            );
         }
 
         // Leaf
         .k-leaf {
-            color: $panel-bg;
+            color: $component-bg;
         }
         .k-leaf.k-inverse {
-            color: $panel-text;
+            color: $component-text;
         }
         .k-leaf.k-state-hover {
-            box-shadow: inset 0 0 0 3px $panel-border;
+            box-shadow: inset 0 0 0 3px $component-border;
         }
     }
 

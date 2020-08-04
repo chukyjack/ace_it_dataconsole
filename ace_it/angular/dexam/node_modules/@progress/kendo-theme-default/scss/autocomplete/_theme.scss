@@ -1,24 +1,50 @@
 @include exports("autocomplete/theme") {
 
+    // Remove first selector when https://github.com/telerik/kendo-angular-dropdowns/issues/656 is done.
+    .k-autocomplete.k-header,
     .k-autocomplete {
-        @include appearance( input );
-        background-clip: padding-box;
-
-        .k-ie11 &,
-        .k-edge12 &,
-        .k-edge13 & {
-            background-clip: border-box;
-        }
+        @include fill(
+            $autocomplete-text,
+            $autocomplete-bg,
+            $autocomplete-border
+        );
+        @include box-shadow($autocomplete-shadow);
+        @include use-background-clip();
 
         // Hovered state
+        &:hover,
         &.k-state-hover {
-            @include appearance( hovered-input );
+            @include fill(
+                $autocomplete-hovered-text,
+                $autocomplete-hovered-bg,
+                $autocomplete-hovered-border
+            );
+            @include box-shadow($autocomplete-hovered-shadow);
         }
 
-        // Selected & Focused state
-        &.k-state-focused,
-        &.k-state-active {
-            @include appearance( focused-input );
+        // Focused & Open state
+        &.k-state-open,
+        &.k-state-focused {
+            @include fill(
+                $autocomplete-focused-text,
+                $autocomplete-focused-bg,
+                $autocomplete-focused-border
+            );
+            @include box-shadow($autocomplete-focused-shadow);
+        }
+
+        // Invalid
+        &.k-invalid,
+        &.k-invalid:hover,
+        &.k-state-invalid,
+        &.ng-invalid.ng-touched,
+        &.ng-invalid.ng-dirty {
+            border-color: $invalid-border;
+
+            &:focus,
+            &.k-state-focused {
+                @include box-shadow($invalid-shadow);
+            }
         }
     }
 

@@ -77,23 +77,6 @@ const routes: Routes = [
        // data: { roles: [Role.Admin] }
   },
    {
-    path: 'time',
-    component: TimePickerComponent
-  },
-   {
-    path: 'demos',
-    component: DemosComponent
-  },
-   {
-    path: 'date',
-    component: DatePickerComponent
-  },
-   {
-    path: 'sidenav',
-    component: SideNavComponent
-  }
-  ,
-   {
     path: 'billing',
     component: BillingComponent,
        canActivate: [AuthGuard],

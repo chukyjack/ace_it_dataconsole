@@ -8,6 +8,8 @@
         font-size: $font-size-sm;
         white-space: nowrap;
         overflow: hidden;
+        position: absolute;
+        z-index: 20000;
         cursor: move;
     }
     .k-drag-status {
@@ -17,7 +19,12 @@
 
     // Theme
     .k-drag-clue {
-        @include appearance( selected-node );
+        @include fill(
+            $node-selected-text,
+            $node-selected-bg,
+            $node-selected-border,
+            $node-selected-gradient
+        );
     }
 
 }

@@ -1,15 +1,10 @@
 @include exports("dialog/theme") {
-
-    $dialog-titlebar-border-color: inherit !default;
-    $dialog-titlebar-bg: $accent !default;
-    $dialog-titlebar-text: $accent-contrast !default;
-
     // Titlebar
     .k-dialog-titlebar {
         @include fill(
             $dialog-titlebar-text,
             $dialog-titlebar-bg,
-            $dialog-titlebar-border-color
+            $dialog-titlebar-border
         );
     }
 
@@ -25,7 +20,7 @@
             background: none;
         }
         .k-primary:not(:hover):not(.k-state-hover):not(:active):not(.k-state-active) {
-            color: $accent;
+            color: $primary;
         }
 
         // Focused state
@@ -35,7 +30,7 @@
         }
         .k-button.k-primary:focus,
         .k-button.k-primary.k-state-focused {
-            box-shadow: inset 0 0 0 2px rgba($accent, .3);
+            box-shadow: inset 0 0 0 2px rgba($primary, .3);
         }
 
     }

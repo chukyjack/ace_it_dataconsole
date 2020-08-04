@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LandingV9Component implements OnInit {
 
 
-  backgroundColor = "landing-blue"
+  backgroundColor = "landing-blue";
   showCustomizer = false;
   constructor() { }
 

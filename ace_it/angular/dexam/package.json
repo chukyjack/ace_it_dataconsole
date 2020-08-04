@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
+    "start": "ng serve",
     "installstart": "npm install && npm rebuild node-sass && ng serve --host=0.0.0.0",
     "build": "ng build",
     "test": "ng test",
@@ -55,6 +55,7 @@
     "popper.js": "^1.14.4",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.3.3",
+    "start": "^5.1.0",
     "tslib": "^1.9.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.8.26"
@@ -83,5 +84,3 @@
     "typescript": "~3.2.2"
   }
 }
-
-

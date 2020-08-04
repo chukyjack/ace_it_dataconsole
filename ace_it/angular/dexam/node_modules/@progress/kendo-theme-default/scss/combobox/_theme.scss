@@ -1,43 +1,82 @@
 @include exports("combobox/theme") {
 
     .k-combobox {
+        @extend .k-text-selection !optional;
 
         // Normal state
         .k-dropdown-wrap {
-            @include appearance( input );
-            background-clip: padding-box;
-            cursor: initial;
+            @include fill(
+                $combobox-text,
+                $combobox-bg,
+                $combobox-border
+            );
 
-            .k-ie11 &,
-            .k-edge12 &,
-            .k-edge13 & {
-                background-clip: border-box;
+            // Invalid state
+            &.k-invalid,
+            &.k-invalid:hover,
+            &.k-state-invalid {
+                border-color: $invalid-border;
+
+                &:focus,
+                &.k-state-focused {
+                    @include box-shadow($invalid-shadow);
+                }
             }
         }
 
         .k-select {
-            @include appearance( button );
-            padding: 0;
-            width: button-inner-size();
-            border-width: 0;
+            @include fill(
+                $combobox-select-text,
+                $combobox-select-bg,
+                $combobox-select-border,
+                $combobox-select-gradient
+            );
         }
 
         // Hovered state
         > :hover,
         .k-state-hover {
-            @include appearance( hovered-input );
+            @include fill(
+                $combobox-hovered-text,
+                $combobox-hovered-bg,
+                $combobox-hovered-border
+            );
 
             .k-select {
-                @include appearance( hovered-button );
+                @include fill(
+                    $combobox-select-hovered-text,
+                    $combobox-select-hovered-bg,
+                    $combobox-select-hovered-border,
+                    $combobox-select-hovered-gradient
+                );
             }
         }
 
         // Selected state
         > .k-state-focused,
         .k-state-active {
-            @include appearance( focused-input );
+            @include fill(
+                $combobox-focused-text,
+                $combobox-focused-bg,
+                $combobox-focused-border
+            );
+            @include box-shadow($combobox-focused-shadow);
 
             .k-select {}
+        }
+
+        // Invalid
+        &.k-state-invalid,
+        &.ng-invalid.ng-touched,
+        &.ng-invalid.ng-dirty {
+            .k-dropdown-wrap {
+                border-color: $invalid-border;
+
+                &:focus,
+                &.k-state-focused {
+                    @include box-shadow($invalid-shadow);
+                }
+            }
         }
     }
 
