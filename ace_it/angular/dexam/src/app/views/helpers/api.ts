@@ -1,2 +1,2 @@
 
-export const APIURL = 'http://localhost';
+export const APIURL = 'http://localhost:80';

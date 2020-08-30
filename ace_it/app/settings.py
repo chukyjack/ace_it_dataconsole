@@ -29,8 +29,8 @@ def get_env_value(var_name):
             return False
         return value
     except KeyError:
-        error_msg = 'Set the {} environment variable'.format(var_name)
-        raise ImproperlyConfigured(error_msg)
+        # error_msg = 'Set the {} environment variable'.format(var_name)
+        return False
 
 
 ENV_SECRETS = {
