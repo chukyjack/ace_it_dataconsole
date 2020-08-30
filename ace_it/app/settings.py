@@ -45,7 +45,7 @@ SECRET_KEY = 'yx_n6!iv$86xj#===mk%=iy=vys85z!ch7hut*+jspn13_8v1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1', 'localhost', '169.254.73.61', 'web']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', '169.254.73.61', 'web', '*', '34.72.246.240']
 # Celery settings
 
 broker_url = 'amqp://guest:guest@localhost:5672//'
