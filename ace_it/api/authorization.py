@@ -5,46 +5,32 @@ from chat.models import Chat
 from django.db.models import Q
 from session.models import Session, SessionContract
 
+
 class ChatParticipantAuthorization(Authorization):
 
     def authorize_list(self, object_list, bundle):
         user = bundle.request.user
         user_chats = user.chats.all()
-        print(user)
-        print(user_chats)
-        print(object_list)
         return object_list
 
     def read_list(self, object_list, bundle):
         self.authorize_list(object_list, bundle)
 
+
 class UserAuthorization(Authorization):
 
     def read_list(self, object_list, bundle):
         user = bundle.request.user
-        # student_id = bundle.request.GET.get('student_id')
-        # if student_id:
-        #     return object_list.filter(tutor=user, student_id=student_id)
         return object_list.filter(Q(tutor=user) | Q(student=user))
-
 
 
 class OpportunityAuthorization(Authorization):
 
     def read_list(self, object_list, bundle):
-        import logging
-        logger = logging.getLogger()
-        logger.info(bundle.request.user)
         user = bundle.request.user
-        logger.warning('##############')
-        logger.warning('##############')
-        logger.warning('##############')
-        logger.warning(user)
-        logger.info('##############')
-        logger.info('##############')
-        logger.info('##############')
         interested_sessions = user.session_interest.all().values_list('session__id', flat=True)
         return object_list.exclude(id__in=interested_sessions)
+
 
 class GigAuthorization(Authorization):
 
@@ -52,6 +38,7 @@ class GigAuthorization(Authorization):
         user = bundle.request.user
         interested_gigs = user.gig_interest.all().values_list('gig__id', flat=True)
         return object_list.exclude(id__in=interested_gigs)
+
 
 class UserWithContractAuthorization(Authorization):
 

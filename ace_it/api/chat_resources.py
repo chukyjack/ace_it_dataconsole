@@ -20,7 +20,6 @@ class MessageResource(ModelResource):
 
 class ChatResource(ModelResource):
 
-
     messages = fields.ToManyField(MessageResource, 'messages')
     participant = fields.ToManyField(UserResource, 'user', null=True)
 

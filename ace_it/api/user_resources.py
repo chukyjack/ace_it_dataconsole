@@ -98,32 +98,19 @@ class UserResource(ModelResource):
         self.throttle_check(request)
         user = request.user
         session_users = []
-        logger.info('##############')
-        logger.info('##############')
-        logger.info('##############')
-        logger.info(user)
-        logger.info('##############')
-        logger.info('##############')
-        logger.info('##############')
         if user.userprofile.role == 'student':
             session_users = SessionContract.objects.filter(student=user).values_list('tutor_id')
         elif user.userprofile.role == 'tutor':
             session_users = SessionContract.objects.filter(tutor=user).values_list('student_id')
         users = MyUser.objects.filter(id__in=session_users)
-        users = [model_to_dict(user, fields=['id', 'first_name', 'last_name', 'email']) for user in users] #TODO specify fields using queryset values method instead
+        users = [model_to_dict(user, fields=['id', 'first_name', 'last_name', 'email']) for user in users]
+        #TODO specify fields using queryset values method instead
         return self.create_response(request, self._format_user(users))
 
     def user_session_details(self, request, **kwargs):
         self.method_check(request, allowed=['get'])
         self.is_authenticated(request)
         self.throttle_check(request)
-        logger.info('##############')
-        logger.info('##############')
-        logger.info('##############')
-        logger.info(request)
-        logger.info('##############')
-        logger.info('##############')
-        logger.info('##############')
         user_session_data = set_user_details(request)
         return self.create_response(request, user_session_data)
 
